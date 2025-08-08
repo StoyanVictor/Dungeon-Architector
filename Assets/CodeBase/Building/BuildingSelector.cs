@@ -19,5 +19,7 @@ public class BuildingSelector : MonoBehaviour
     {
         button = GetComponent<Button>();
         button.onClick.AddListener(() => buildingSpawner.SelectBuilding(buildingData.buildingPrefabId));
+        button.onClick.AddListener(() => buildingSpawner.SetsCellsCountToBuild(buildingData.cellsToBuild));
+
     }
 }

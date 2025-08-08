@@ -44,4 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 303e011a1bac4bae9a8ee805b3f22442, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color: {r: 0.11505294, g: 1, b: 0, a: 0}
+  emptyCellColor: {r: 0.20038986, g: 1, b: 0, a: 0}
+  notEmptyCellColor: {r: 1, g: 0, b: 0, a: 0}

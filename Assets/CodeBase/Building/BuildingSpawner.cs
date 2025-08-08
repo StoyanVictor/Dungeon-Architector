@@ -4,8 +4,17 @@ using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class BuildingSpawner : MonoBehaviour
 {
+    [SerializeField] private int cellsCountToBuild;
+    
     private GameObject buildingPrefab;
+    
     private AsyncOperationHandle<GameObject> loadHandle;
+    
+
+    public int SetsCellsCountToBuild(int cellsCount) => cellsCountToBuild = cellsCount;
+
+    public int GetCellsCountToBuild() => cellsCountToBuild;
+    
     private GameObject ghostInstance;
     
     public void SelectBuilding(string buildingId)

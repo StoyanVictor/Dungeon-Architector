@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Bulding2
   m_EditorClassIdentifier: 
   buildingPrefabId: ThirdBulding
-  cellsToBuild: 1
+  cellsToBuild: 2
