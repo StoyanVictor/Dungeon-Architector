@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 namespace CodeBase
 {
@@ -16,15 +17,15 @@ namespace CodeBase
         private GameFieldBehaviourAdjuster gameFieldBehaviourAdjuster;
         private bool canBuildHere;
         public Vector3 offset;
-        
-        private void Awake()
-        {
-            buildingSpawner = FindObjectOfType<BuildingSpawner>();
-            gameFieldGenerator = FindObjectOfType<GameFieldGenerator>();
-            gameFieldBehaviourAdjuster = new GameFieldBehaviourAdjuster();
 
+        [Inject]
+        public void Construct(BuildingSpawner _buildingSpawner,GameFieldGenerator _gameFieldGenerator,GameFieldBehaviourAdjuster _behaviourAdjuster)
+        {
+            buildingSpawner = _buildingSpawner;
+            gameFieldGenerator = _gameFieldGenerator;
+            gameFieldBehaviourAdjuster = _behaviourAdjuster;
         }
-        
+
         private void OnMouseEnter()
         {
             OnCellAim?.Invoke();

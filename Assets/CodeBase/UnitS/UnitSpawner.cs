@@ -1,0 +1,40 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using Zenject;
+
+public class UnitSpawner : MonoBehaviour
+{
+    [SerializeField] private Camera mainCamera;
+    [SerializeField] private LayerMask targetLayer; // сюда ставишь слой, с которым должен быть коллизия
+    private UnitFactory unitFactory;
+    private UnitType unitType;
+
+    public UnitType GetUnitType() => unitType;
+
+    public void SetUnitType(UnitType unitType)
+    {
+        this.unitType = unitType;
+    }
+
+    [Inject]
+    public void Construct(UnitFactory _unitFactory)
+    {
+        unitFactory = _unitFactory;
+    }
+
+    void Update()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+
+            if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, targetLayer))
+            {
+                Debug.LogWarning(unitType);
+               unitFactory.Create(GetUnitType(),hit.point);
+            }
+        }
+    }
+}

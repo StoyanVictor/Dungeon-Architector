@@ -12,7 +12,6 @@ public class BuildingSelector : MonoBehaviour
     public void Construct(BuildingSpawner _buildingSpawner)
     {
         buildingSpawner = _buildingSpawner;
-        Debug.LogError(buildingSpawner);
     }
 
     private void Awake()
