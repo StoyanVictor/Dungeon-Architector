@@ -5,9 +5,11 @@ namespace CodeBase.UnitS.AI
     public class IdleState : IUnitState
     {
         private UnitAnimationPlayer unitAnimationPlayer;
-        public IdleState(UnitAnimationPlayer _unitAnimationPlayer)
+        private UnitAi unitAi;
+        public IdleState(UnitAnimationPlayer _unitAnimationPlayer,UnitAi _unitAi)
         {
             unitAnimationPlayer = _unitAnimationPlayer;
+            unitAi = _unitAi;
         }
 
         public void EnterState()
@@ -19,6 +21,8 @@ namespace CodeBase.UnitS.AI
         public void Excute()
         {
             unitAnimationPlayer.PlayIdleAnimation();
+            if(unitAi.FindTarget())
+                unitAi.SwitchState(new FollowingState(unitAi));
         }
 
         public void ExitState()

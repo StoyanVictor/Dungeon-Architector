@@ -1,20 +1,32 @@
-﻿namespace CodeBase.UnitS.AI
+﻿using UnityEngine;
+
+namespace CodeBase.UnitS.AI
 {
     public class AttackState : IUnitState
     {
+        private UnitAi unitAi;
+        
+        public AttackState(UnitAi ai)
+        {
+            unitAi = ai;
+        }
         public void EnterState()
         {
-            throw new System.NotImplementedException();
+            Debug.LogWarning("Im attackState");
         }
 
         public void Excute()
         {
-            throw new System.NotImplementedException();
+            if (unitAi.CheckForAttackRange())
+            {
+                unitAi.Attack();
+            }
+            else if(unitAi.FindTarget() && !unitAi.CheckForAttackRange())
+                unitAi.SwitchState(new FollowingState(unitAi));
         }
 
         public void ExitState()
         {
-            throw new System.NotImplementedException();
         }
     }
 }

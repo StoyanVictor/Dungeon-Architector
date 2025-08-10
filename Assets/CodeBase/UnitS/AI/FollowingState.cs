@@ -6,12 +6,10 @@ namespace CodeBase.UnitS.AI
     public class FollowingState : IUnitState
     {
         private UnitAi unitAi;
-        private UnitAnimationPlayer unitAnimationPlayer;
         
-        public FollowingState(UnitAi ai,UnitAnimationPlayer _unitAnimationPlayer)
+        public FollowingState(UnitAi ai)
         {
             unitAi = ai;
-            unitAnimationPlayer = _unitAnimationPlayer;
         }
 
         public void EnterState()
@@ -21,13 +19,16 @@ namespace CodeBase.UnitS.AI
 
         public void Excute()
         {
-            unitAi.Move();
-            unitAnimationPlayer.PlayWalkAnimation();
+            if (unitAi.FindTarget() && !unitAi.CheckForAttackRange())
+            {
+                unitAi.Move();
+            }
+            else if(unitAi.CheckForAttackRange())
+                unitAi.SwitchState(new AttackState(unitAi));
         }
 
         public void ExitState()
         {
-            throw new System.NotImplementedException();
         }
     }
 }
