@@ -1,12 +1,12 @@
-﻿using System;
-using CodeBase.EnemyHero;
-using UnityEngine.Rendering;
+﻿using CodeBase.EnemyHero;
+using UnityEngine;
 
 public class EnemyMeleeHeroAi : EnemyHeroAiBase
 {
     
     public override void Move()
     {
+
         if (!FindTarget())
         {
             agent.SetDestination(maintTarget.transform.position);
@@ -28,6 +28,7 @@ public class EnemyMeleeHeroAi : EnemyHeroAiBase
         currentState.Excute();
     }
 
+    
     public override void Attack()
     {
         if (CheckForAttackRange())

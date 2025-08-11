@@ -1,4 +1,5 @@
 ﻿using CodeBase.EnemyHero;
+using UnityEngine;
 
 public class EnemyRangeHeroAi : EnemyHeroAiBase
 {

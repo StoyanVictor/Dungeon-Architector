@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using CodeBase;
 using UnityEngine;
 using Zenject;
 
@@ -10,6 +11,13 @@ public class UnitSpawner : MonoBehaviour
     [SerializeField] private LayerMask targetLayer; // сюда ставишь слой, с которым должен быть коллизия
     private UnitFactory unitFactory;
     private UnitType unitType;
+    private Bank bank;
+
+    [Inject]
+    public void Construct(Bank _bank)
+    {
+        bank = _bank;
+    }
 
     public UnitType GetUnitType() => unitType;
 
@@ -26,7 +34,8 @@ public class UnitSpawner : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(1))
+        
+        if (Input.GetMouseButtonDown(1) && bank.SpendMoney(10))
         {
             Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
 

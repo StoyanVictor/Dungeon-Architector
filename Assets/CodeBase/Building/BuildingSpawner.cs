@@ -1,15 +1,26 @@
-﻿using UnityEngine;
+﻿using CodeBase;
+using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using Zenject;
 
 public class BuildingSpawner : MonoBehaviour
 {
     [SerializeField] private int cellsCountToBuild;
+    [SerializeField] private AudioClip createSfx;
+    [SerializeField] private AudioSource audioSource;
     
     private GameObject buildingPrefab;
     
     private AsyncOperationHandle<GameObject> loadHandle;
-    
+
+    private Bank bank;
+
+    [Inject]
+    public void Construct(Bank _bank)
+    {
+        bank = _bank;
+    }
 
     public int SetsCellsCountToBuild(int cellsCount) => cellsCountToBuild = cellsCount;
 
@@ -73,13 +84,15 @@ public class BuildingSpawner : MonoBehaviour
             Debug.Log("❗ Building not loaded yet");
             return;
         }
-        else if (!isEmpty)
+        else if (!isEmpty && bank.SpendMoney(20))
         {
             Instantiate(buildingPrefab, pos, Quaternion.identity);
             Destroy(ghostInstance);
+            audioSource.PlayOneShot(createSfx);
             ghostInstance = null;
             ClearResources();
         }
+        
     }
 
     void SetGhostMaterialTransparent(GameObject obj)
@@ -93,6 +106,7 @@ public class BuildingSpawner : MonoBehaviour
                 mat.color = Color.yellow;
             }
         }
+        obj.GetComponent<TrapVfxPlayer>().HideVfx();
     }
 
     public void ClearResources()
