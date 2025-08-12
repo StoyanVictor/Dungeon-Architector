@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 using Zenject;
 
 namespace CodeBase.EnemyHero
@@ -11,21 +9,23 @@ namespace CodeBase.EnemyHero
     {
         [SerializeField] private LevelSwitcher lvlSwitcher;
         [SerializeField] private Transform spawnPos;
-        [SerializeField] private TimerShower _timerShower;
+        [SerializeField] private TimerShower timerShower;
         [SerializeField] private int currentWave;
+        [SerializeField] private FabricCreatingSfxPlayer sfxPlayer;
         public List<EnemyHeroData> enemiesAlive;
         private EnemyHeroFabric enemyFabric;
+        private EventBus eventBus;
 
-        
         [Inject]
-        public void Construct(EnemyHeroFabric _enemyFabric)
+        public void Construct(EnemyHeroFabric _enemyFabric,EventBus _eventBus)
         {
             enemyFabric = _enemyFabric;
+            eventBus = _eventBus;
         }
 
         private void OnEnable()
         {
-            EventBus.Instance.OnEnemyDied += CheckIfWaveIsFinished;
+            eventBus.OnEnemyDied += CheckIfWaveIsFinished;
         }
 
         private void CheckIfWaveIsFinished()
@@ -34,7 +34,7 @@ namespace CodeBase.EnemyHero
             {
                 enemiesAlive.RemoveAt(0);
                 Debug.LogAssertion($"Im starting new wave");
-                StartCoroutine(WaveTimer(_timerShower.GetTimerDuration()));
+                StartCoroutine(WaveTimer(timerShower.GetTimerDuration()));
                 Debug.LogAssertion($"Im starting new wave1");
             }
             else enemiesAlive.RemoveAt(0);
@@ -42,7 +42,7 @@ namespace CodeBase.EnemyHero
 
         private IEnumerator WaveTimer(int s)
         {
-            _timerShower.StartTimer();
+            timerShower.StartTimer();
             yield return new WaitForSeconds(s);
             SpawnEnemy();
         }
@@ -62,13 +62,13 @@ namespace CodeBase.EnemyHero
                 enemyFabric.Create(enemyHeroes.enemyHeroType,spawnPos);
                 enemiesAlive.Add(enemyHeroes);
             }
-
             currentWave++;
+            sfxPlayer.PlayCreateSFX();
         }
 
         private void Awake()
         {
-            StartCoroutine(WaveTimer(_timerShower.GetTimerDuration()));
+            StartCoroutine(WaveTimer(timerShower.GetTimerDuration()));
         }
         
     }

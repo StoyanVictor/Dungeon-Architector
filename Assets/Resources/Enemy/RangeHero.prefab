@@ -661,6 +661,7 @@ GameObject:
   - component: {fileID: 1793872724820570830}
   - component: {fileID: 2321116430526032557}
   - component: {fileID: 723654896655133438}
+  - component: {fileID: 5983821424284072847}
   m_Layer: 7
   m_Name: RangeHero
   m_TagString: Untagged
@@ -785,6 +786,7 @@ MonoBehaviour:
   wizzardFireBall: {fileID: 7398936036425905716, guid: f18c61958c2196a4c8a36f31bf69832e,
     type: 3}
   offset: {x: 0, y: 1, z: -1}
+  configurator: {fileID: 5983821424284072847}
 --- !u!114 &1793872724820570830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -799,6 +801,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 150
   hpSlider: {fileID: 6796869725027475763}
+  configurator: {fileID: 5983821424284072847}
 --- !u!82 &2321116430526032557
 AudioSource:
   m_ObjectHideFlags: 0
@@ -910,6 +913,22 @@ MonoBehaviour:
   moveSFX: {fileID: 8300000, guid: 038a39fa3d8a12f4da0f5fdcfd306367, type: 3}
   attackSFX: {fileID: 8300000, guid: a732534d8d08640439bbe8a391596fff, type: 3}
   audioSource: {fileID: 2321116430526032557}
+--- !u!114 &5983821424284072847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248815240492774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2af2b7c3c55d78e429b5c1bae8445e9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 0
+  armour: 0
+  dmg: 0
+  config: {fileID: 11400000, guid: 60595c41d268e024999981c7155ca544, type: 2}
 --- !u!1 &1251583507443948
 GameObject:
   m_ObjectHideFlags: 0

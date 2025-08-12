@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8441387757768582557}
   - component: {fileID: 7142485427423512069}
   - component: {fileID: 4579869433864885616}
+  - component: {fileID: 4824437655869722215}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -46,8 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cellsCountToBuild: 1
-  createSfx: {fileID: 8300000, guid: d3a4b9b3d24bf4f4cba62c6b830fb02d, type: 3}
-  audioSource: {fileID: 4579869433864885616}
+  sfxPlayer: {fileID: 4824437655869722215}
 --- !u!82 &4579869433864885616
 AudioSource:
   m_ObjectHideFlags: 0
@@ -144,3 +144,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &4824437655869722215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6500950140621447986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f621f2a4507eda48b2ff4577b6e837d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  createSfx: {fileID: 8300000, guid: d3a4b9b3d24bf4f4cba62c6b830fb02d, type: 3}
+  audioSource: {fileID: 4579869433864885616}

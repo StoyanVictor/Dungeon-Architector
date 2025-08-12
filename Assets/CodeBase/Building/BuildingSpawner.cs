@@ -7,8 +7,7 @@ using Zenject;
 public class BuildingSpawner : MonoBehaviour
 {
     [SerializeField] private int cellsCountToBuild;
-    [SerializeField] private AudioClip createSfx;
-    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private FabricCreatingSfxPlayer sfxPlayer;
     
     private GameObject buildingPrefab;
     
@@ -86,9 +85,10 @@ public class BuildingSpawner : MonoBehaviour
         }
         else if (!isEmpty && bank.SpendMoney(20))
         {
-            Instantiate(buildingPrefab, pos, Quaternion.identity);
+            var obj = Instantiate(buildingPrefab, pos, Quaternion.identity);
             Destroy(ghostInstance);
-            audioSource.PlayOneShot(createSfx);
+            sfxPlayer.PlayCreateSFX();
+            obj.GetComponent<TrapVfxPlayer>().ShowVfx();
             ghostInstance = null;
             ClearResources();
         }

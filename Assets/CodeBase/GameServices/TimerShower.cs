@@ -5,8 +5,9 @@ using UnityEngine;
 public class TimerShower : MonoBehaviour
 {
     [SerializeField] private int timerDuration = 10;
-    private int standartTimerValue;
     [SerializeField] private TextMeshProUGUI timerText;
+    [SerializeField] private FabricCreatingSfxPlayer SfxPlayer;
+    private int standartTimerValue;
 
     public int GetTimerDuration() => timerDuration;
 
@@ -30,9 +31,10 @@ public class TimerShower : MonoBehaviour
             timerText.text = timerDuration.ToString();
             yield return new WaitForSeconds(1f);
             timerDuration--;
+            SfxPlayer.PlayCreateSFX();
         }
-
         timerText.text = "0";
         ResetTimer();
+        Debug.LogError("Reset timer was lauched!");
     }
 }

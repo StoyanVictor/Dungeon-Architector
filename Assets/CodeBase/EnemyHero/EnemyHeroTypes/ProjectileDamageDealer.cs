@@ -1,11 +1,14 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
 
 public class ProjectileDamageDealer : MonoBehaviour
 {
     [SerializeField] private int dmg;
+
+    public void SetupDamageCount(int _dmg)
+    {
+        dmg = _dmg;
+    }
 
     private void OnTriggerEnter(Collider other)
     {

@@ -1,6 +1,7 @@
 ﻿using System;
 using TMPro;
 using UnityEngine;
+using Zenject;
 
 namespace CodeBase
 {
@@ -8,8 +9,14 @@ namespace CodeBase
     {
         [SerializeField] private int moneyCount;
         [SerializeField] private TextMeshProUGUI moneyCountText;
+        private EventBus eventBus;
 
-        
+        [Inject]
+        public void Construct(EventBus _eventBus)
+        {
+            eventBus = _eventBus;
+        }
+
         private void AddMoney()
         {
             moneyCount += 50;
@@ -17,7 +24,7 @@ namespace CodeBase
 
         private void Start()
         {
-            EventBus.Instance.OnEnemyDied += AddMoney;
+            eventBus.OnEnemyDied += AddMoney;
         }
 
         private void Update()

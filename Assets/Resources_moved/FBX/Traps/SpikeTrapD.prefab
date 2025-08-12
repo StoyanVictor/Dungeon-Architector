@@ -1046,6 +1046,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4753028538822310}
     m_Modifications:
+    - target: {fileID: 1765300272686802121, guid: 18533bdcb8e9a9e4b9f34c4b44a910b7,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2971515944241685650, guid: 18533bdcb8e9a9e4b9f34c4b44a910b7,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4322601747274085308, guid: 18533bdcb8e9a9e4b9f34c4b44a910b7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1100,6 +1110,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Dust_permanently_blue
+      objectReference: {fileID: 0}
+    - target: {fileID: 7653871784815885630, guid: 18533bdcb8e9a9e4b9f34c4b44a910b7,
+        type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

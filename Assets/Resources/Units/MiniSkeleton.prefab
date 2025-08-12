@@ -487,6 +487,7 @@ GameObject:
   - component: {fileID: 6983715754821134372}
   - component: {fileID: 3672553421700909308}
   - component: {fileID: 4478091727755126810}
+  - component: {fileID: 1759742661683267404}
   m_Layer: 0
   m_Name: MiniSkeleton
   m_TagString: Untagged
@@ -613,6 +614,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 100
   hpSlider: {fileID: 5217602655781306685}
+  configurator: {fileID: 1759742661683267404}
 --- !u!82 &3672553421700909308
 AudioSource:
   m_ObjectHideFlags: 0
@@ -724,6 +726,22 @@ MonoBehaviour:
   moveSFX: {fileID: 8300000, guid: 038a39fa3d8a12f4da0f5fdcfd306367, type: 3}
   attackSFX: {fileID: 8300000, guid: 6b02fcd695a1e8146b39b6adc47c00c1, type: 3}
   audioSource: {fileID: 3672553421700909308}
+--- !u!114 &1759742661683267404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3136820629370392942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f97244d4fd64686863b667b16254510, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 0
+  armour: 0
+  dmg: 0
+  config: {fileID: 11400000, guid: 5b85b3aa0f09ece42a77b0edfee1e04b, type: 2}
 --- !u!1 &3190320679450232660
 GameObject:
   m_ObjectHideFlags: 0
@@ -1811,6 +1829,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmg: 20
+  configurator: {fileID: 1759742661683267404}
 --- !u!1 &7429127129135464743
 GameObject:
   m_ObjectHideFlags: 0

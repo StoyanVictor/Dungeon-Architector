@@ -1,11 +1,21 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class EnemyHeroHealth : MonoBehaviour,IDamagable
 {
     [SerializeField] private int health;
     [SerializeField] private Slider hpSlider;
-    
+    [SerializeField] private EnemyConfigurator configurator;
+    private EventBus eventBus;
+
+    private void SetupHealth() => health = configurator.GetHpCount();
+
+    [Inject]
+    public void Construct(EventBus _eventBus)
+    {
+        eventBus = _eventBus;
+    }
     
     public void SetMaxHP(float maxHP)
     {
@@ -29,15 +39,16 @@ public class EnemyHeroHealth : MonoBehaviour,IDamagable
             PlayerDeath();
     }
 
-    private void Awake()
+    private void Start()
     {
+        SetupHealth();
         SetMaxHP(health);
     }
 
     private void PlayerDeath()
     {
         Debug.LogWarning("Enemy Died");
-        EventBus.Instance.EnemyDies();
+        eventBus.EnemyDies();
         Destroy(this.gameObject);
     }
 }

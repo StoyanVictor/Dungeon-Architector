@@ -8,7 +8,8 @@ using Zenject;
 public class UnitSpawner : MonoBehaviour
 {
     [SerializeField] private Camera mainCamera;
-    [SerializeField] private LayerMask targetLayer; // сюда ставишь слой, с которым должен быть коллизия
+    [SerializeField] private LayerMask targetLayer;
+    [SerializeField] private FabricCreatingSfxPlayer sfxPlayer;
     private UnitFactory unitFactory;
     private UnitType unitType;
     private Bank bank;
@@ -43,6 +44,7 @@ public class UnitSpawner : MonoBehaviour
             {
                 Debug.LogWarning(unitType);
                unitFactory.Create(GetUnitType(),hit.point);
+               sfxPlayer.PlayCreateSFX();
             }
         }
     }

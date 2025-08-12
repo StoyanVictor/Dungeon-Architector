@@ -3,14 +3,13 @@
 public class TrapVfxPlayer : MonoBehaviour
 {
     [SerializeField] private ParticleSystem particleSystem;
-
+    
     public void HideVfx()
     {
-        particleSystem.gameObject.SetActive(false);
+        particleSystem.Stop();
     }
     public void ShowVfx()
     {
-        particleSystem.gameObject.SetActive(true);
+        particleSystem.Play();
     }
-    
 }

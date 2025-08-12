@@ -6,8 +6,8 @@ public class UnitHealth : MonoBehaviour,IDamagable
 {
     [SerializeField] private int health;
     [SerializeField] private Slider hpSlider;
-    
-    
+    [SerializeField] private UnitConfigurator configurator;
+    private void SetupHealthCount(UnitConfigurator _configurator) => health = _configurator.GetHpCount();
     public void SetMaxHP(float maxHP)
     {
         hpSlider.maxValue = maxHP;
@@ -30,8 +30,10 @@ public class UnitHealth : MonoBehaviour,IDamagable
             PlayerDeath();
     }
 
-    private void Awake()
+    private void Start()
     {
+        Debug.LogError(configurator);
+        SetupHealthCount(configurator);
         SetMaxHP(health);
     }
 

@@ -1697,6 +1697,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dmg: 10
+  configurator: {fileID: 4039430379418035795}
 --- !u!54 &7030199565890975767
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2933,6 +2934,7 @@ GameObject:
   - component: {fileID: 6026019003200311549}
   - component: {fileID: 2003904390528805585}
   - component: {fileID: 3647242538132909091}
+  - component: {fileID: 4039430379418035795}
   m_Layer: 7
   m_Name: MeleeHero
   m_TagString: Untagged
@@ -3037,6 +3039,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 200
   hpSlider: {fileID: 2178069277750065094}
+  configurator: {fileID: 4039430379418035795}
 --- !u!136 &6026019003200311549
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3171,6 +3174,22 @@ MonoBehaviour:
   moveSFX: {fileID: 8300000, guid: 038a39fa3d8a12f4da0f5fdcfd306367, type: 3}
   attackSFX: {fileID: 8300000, guid: 94621ade48fab4f4b819ad4691f37b8f, type: 3}
   audioSource: {fileID: 2003904390528805585}
+--- !u!114 &4039430379418035795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8189980434977739222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2af2b7c3c55d78e429b5c1bae8445e9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 0
+  armour: 0
+  dmg: 0
+  config: {fileID: 11400000, guid: 7d496de9d6fc0b447848ed90834d0071, type: 2}
 --- !u!1 &8206070634150816031
 GameObject:
   m_ObjectHideFlags: 0
