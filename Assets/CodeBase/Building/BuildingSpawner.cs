@@ -78,6 +78,8 @@ public class BuildingSpawner : MonoBehaviour
 
     public void PlaceBuilding(Vector3 pos, bool isEmpty)
     {
+        Debug.LogError($"Im trying to build broo!!!");
+
         if (buildingPrefab == null || isEmpty)
         {
             Debug.Log("❗ Building not loaded yet");

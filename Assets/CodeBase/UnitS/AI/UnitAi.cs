@@ -12,7 +12,7 @@ namespace CodeBase.UnitS.AI
         [SerializeField] private float range;
         [SerializeField] private float attackrange;
         public Transform currentTarget;
-        private UnitAnimationPlayer unitAnimationPlayer;
+        public UnitAnimationPlayer unitAnimationPlayer;
         private IUnitState currentState;
 
         public Transform GetCurrentTarget() => currentTarget;

@@ -17,6 +17,8 @@ namespace CodeBase.UnitS.AI
 
         public void Excute()
         {
+            if(unitAi.GetCurrentTarget() == null)
+                unitAi.SwitchState(new IdleState(unitAi.unitAnimationPlayer,unitAi));
             if (unitAi.CheckForAttackRange())
             {
                 unitAi.Attack();
