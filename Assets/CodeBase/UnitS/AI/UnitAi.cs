@@ -47,6 +47,7 @@ namespace CodeBase.UnitS.AI
             if (CheckForAttackRange())
             {
                 unitAnimationPlayer.PlayAttackAnimation();
+                transform.LookAt(GetCurrentTarget());
             }
         }
         public bool CheckForAttackRange()

@@ -933,7 +933,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87b109d461fc7d34db714c0b860ff3dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerDuration: 20
+  timerDuration: 2
   timerText: {fileID: 2009051737}
   SfxPlayer: {fileID: 326055289}
 --- !u!4 &326055287
@@ -1434,13 +1434,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 406481320}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.28329772, y: 0.43305665, z: -0.16921608, w: -0.838791}
-  m_LocalPosition: {x: 13.3, y: 5.4, z: 0.2}
+  m_LocalRotation: {x: 0.3420201, y: 0, z: 0, w: 0.9396927}
+  m_LocalPosition: {x: 8, y: 6.67, z: -1.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 38.449, y: -53.63, z: 2.818}
+  m_LocalEulerAnglesHint: {x: 40, y: 0, z: 0}
 --- !u!1 &414512275
 GameObject:
   m_ObjectHideFlags: 0
@@ -6248,7 +6248,7 @@ Transform:
   m_GameObject: {fileID: 1891691265}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.27, y: 3, z: -2.19}
+  m_LocalPosition: {x: 8.27, y: 2.6, z: -2.63}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7145,7 +7145,7 @@ PrefabInstance:
     - target: {fileID: 2421565326977804739, guid: 5259af44ad1ba604fa6d5d4f2c479577,
         type: 3}
       propertyPath: unitType
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2535186608316978458, guid: 5259af44ad1ba604fa6d5d4f2c479577,
         type: 3}

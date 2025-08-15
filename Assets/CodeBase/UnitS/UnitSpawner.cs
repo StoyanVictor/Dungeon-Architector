@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using CodeBase;
+using CodeBase.TweenServices;
 using UnityEngine;
 using Zenject;
 
@@ -10,28 +11,27 @@ public class UnitSpawner : MonoBehaviour
     [SerializeField] private Camera mainCamera;
     [SerializeField] private LayerMask targetLayer;
     [SerializeField] private FabricCreatingSfxPlayer sfxPlayer;
+    private SpawnTweenService tweenService;
     private UnitFactory unitFactory;
     private UnitType unitType;
     private Bank bank;
 
     [Inject]
-    public void Construct(Bank _bank)
+    public void Construct(Bank _bank,UnitFactory _unitFactory)
     {
         bank = _bank;
-    }
+        unitFactory = _unitFactory;
 
+    }
+    
     public UnitType GetUnitType() => unitType;
 
-    public void SetUnitType(UnitType unitType)
+    public void SetUnitType(UnitType _unitType)
     {
-        this.unitType = unitType;
+        unitType = _unitType;
     }
 
-    [Inject]
-    public void Construct(UnitFactory _unitFactory)
-    {
-        unitFactory = _unitFactory;
-    }
+    
 
     void Update()
     {

@@ -1,4 +1,5 @@
 ﻿using CodeBase;
+using CodeBase.TweenServices;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -10,15 +11,29 @@ public class BuildingSpawner : MonoBehaviour
     [SerializeField] private FabricCreatingSfxPlayer sfxPlayer;
     
     private GameObject buildingPrefab;
-    
+    private SpawnTweenService tweenService;
     private AsyncOperationHandle<GameObject> loadHandle;
-
     private Bank bank;
 
     [Inject]
     public void Construct(Bank _bank)
     {
         bank = _bank;
+    }
+
+    private void Start()
+    {
+        tweenService = new SpawnTweenService();
+    }
+
+    public bool IsBuildingPrefabAvailable()
+    {
+        if (buildingPrefab != null)
+            return true;
+        else
+        {
+            return false;
+        }
     }
 
     public int SetsCellsCountToBuild(int cellsCount) => cellsCountToBuild = cellsCount;
@@ -88,6 +103,7 @@ public class BuildingSpawner : MonoBehaviour
         else if (!isEmpty && bank.SpendMoney(20))
         {
             var obj = Instantiate(buildingPrefab, pos, Quaternion.identity);
+            tweenService.SpawnScaleTween(obj.transform.localScale,obj,0.5f);
             Destroy(ghostInstance);
             sfxPlayer.PlayCreateSFX();
             obj.GetComponent<TrapVfxPlayer>().ShowVfx();

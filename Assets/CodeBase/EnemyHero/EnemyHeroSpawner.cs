@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using CodeBase.TweenServices;
 using UnityEngine;
 using Zenject;
 

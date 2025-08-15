@@ -34,6 +34,18 @@ public class EnemyMeleeHeroAi : EnemyHeroAiBase
         if (CheckForAttackRange())
         {
             animationPlayer.PlayAttackAnimation();
+            LookAtTarget();
         }
+    }
+
+    private void LookAtTarget()
+    {
+        if (currentTarget != null)
+        {
+            Vector3 lookPos = GetCurrentTarget().position - transform.position;
+            lookPos.y = 0;
+            transform.rotation = Quaternion.LookRotation(lookPos);
+        }
+
     }
 }

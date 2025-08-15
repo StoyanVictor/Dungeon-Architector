@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: EasyWave2
   m_EditorClassIdentifier: 
   enemies:
-  - {fileID: 11400000, guid: 3e4fcb31ccf48f845898c117ef200b8b, type: 2}
+  - {fileID: 11400000, guid: 0bb98e8ff5f920646b7fe7dd0fc44d08, type: 2}

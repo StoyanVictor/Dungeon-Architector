@@ -46,15 +46,18 @@ namespace CodeBase
 
         private void OnMouseDown()
         {
-            OnCellSelect?.Invoke();
-            buildingSpawner.PlaceBuilding(cell.GetCellPosition() + offset,canBuildHere);
-            foreach (var cell in cellsList)
+            if (buildingSpawner.IsBuildingPrefabAvailable())
             {
-                var gamecell = cell.GetComponent<Cell>();
-                gamecell.FillInCell();
-                Debug.LogError($"Cell id: {gamecell.cellId }, empty status : {gamecell.isEmpty}");
+                OnCellSelect?.Invoke();
+                buildingSpawner.PlaceBuilding(cell.GetCellPosition() + offset, canBuildHere);
+                foreach (var cell in cellsList)
+                {
+
+                    var gamecell = cell.GetComponent<Cell>();
+                    gamecell.FillInCell();
+                    Debug.LogError($"Cell id: {gamecell.cellId}, empty status : {gamecell.isEmpty}");
+                }
             }
-            
         }
 
         private void RemoveCells()

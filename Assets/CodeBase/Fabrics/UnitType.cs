@@ -1,5 +1,6 @@
 ﻿public enum UnitType
 {
     miniSkeleton,
-    skeleton
+    skeleton,
+    chest
 }

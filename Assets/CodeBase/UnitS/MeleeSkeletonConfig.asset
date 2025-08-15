@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8060762ae38a423fbc3cf9c3fb8089e3, type: 3}
   m_Name: MeleeSkeletonConfig
   m_EditorClassIdentifier: 
-  hp: 50
+  hp: 150
   armour: 20
-  dmg: 10
+  dmg: 30
