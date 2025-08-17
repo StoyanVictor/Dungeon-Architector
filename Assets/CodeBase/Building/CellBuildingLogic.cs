@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using CodeBase.UnitS.AI;
 using UnityEngine;
 using Zenject;
 
@@ -49,16 +50,22 @@ namespace CodeBase
             if (buildingSpawner.IsBuildingPrefabAvailable())
             {
                 OnCellSelect?.Invoke();
-                buildingSpawner.PlaceBuilding(cell.GetCellPosition() + offset, canBuildHere);
-                foreach (var cell in cellsList)
+                if (!buildingSpawner.PlaceBuilding(cell.GetCellPosition() + offset, canBuildHere)
+                    .TryGetComponent(out UnitAi ai))
                 {
+                    foreach (var cell in cellsList)
+                    {
 
-                    var gamecell = cell.GetComponent<Cell>();
-                    gamecell.FillInCell();
-                    Debug.LogError($"Cell id: {gamecell.cellId}, empty status : {gamecell.isEmpty}");
+                        var gamecell = cell.GetComponent<Cell>();
+                        gamecell.FillInCell();
+                        Debug.LogError($"Cell id: {gamecell.cellId}, empty status : {gamecell.isEmpty}");
+                    }
                 }
+                else return;
             }
         }
+
+        
 
         private void RemoveCells()
         {

@@ -1,10 +1,11 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 using Zenject;
 
 public class BuildingSelector : MonoBehaviour
 {
-    public BuildingData buildingData;
+    public GameUnitData gameUnitData;
     private Button button;
     private BuildingSpawner buildingSpawner;
     private RectTransform rectTransform;
@@ -21,8 +22,8 @@ public class BuildingSelector : MonoBehaviour
         rectTransform = GetComponent<RectTransform>();
         buttonTween = new ButtonTweenService();
         button = GetComponent<Button>();
-        button.onClick.AddListener(() => buildingSpawner.SelectBuilding(buildingData.buildingPrefabId));
-        button.onClick.AddListener(() => buildingSpawner.SetsCellsCountToBuild(buildingData.cellsToBuild));
+        button.onClick.AddListener(() => buildingSpawner.SelectBuilding(gameUnitData.unitPrefabId));
+        button.onClick.AddListener(() => buildingSpawner.SetsCellsCountToBuild(gameUnitData.cellsToPlace));
         button.onClick.AddListener(() => buttonTween.PressButtonShakeTween(rectTransform));
 
     }

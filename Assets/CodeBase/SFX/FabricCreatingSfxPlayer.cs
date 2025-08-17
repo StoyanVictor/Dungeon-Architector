@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class FabricCreatingSfxPlayer : MonoBehaviour
@@ -10,4 +11,5 @@ public class FabricCreatingSfxPlayer : MonoBehaviour
         audioSource.PlayOneShot(createSfx);
     }
 
+    
 }

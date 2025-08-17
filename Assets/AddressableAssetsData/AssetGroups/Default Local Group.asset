@@ -17,18 +17,28 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: f03fcc009d042da489c9e595d25a07aa
   m_SerializeEntries:
+  - m_GUID: 33fb8a2faca0f2a42b0a45a8662ef87c
+    m_Address: ChestMonster
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 474d2349f2a11b34a934d07e3516af9a
-    m_Address: FirstBulding
+    m_Address: SwingTrap
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 62dcba975a0bdfe47bef48ea43049412
+    m_Address: MiniSkeleton
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a1644dd8880d0594d970514153034e86
-    m_Address: ThirdBulding
+    m_Address: HatchTrap
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b58fdf950bf832348af4bfaa2fd9f743
-    m_Address: SecondBulding
+    m_Address: SpikeTrap
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

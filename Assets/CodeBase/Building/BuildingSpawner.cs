@@ -1,10 +1,11 @@
-﻿using CodeBase;
+﻿using System;
+using CodeBase;
 using CodeBase.TweenServices;
+using CodeBase.UnitS.AI;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using Zenject;
-
 public class BuildingSpawner : MonoBehaviour
 {
     [SerializeField] private int cellsCountToBuild;
@@ -19,6 +20,11 @@ public class BuildingSpawner : MonoBehaviour
     public void Construct(Bank _bank)
     {
         bank = _bank;
+    }
+
+    private void Update()
+    {
+        if(Input.GetMouseButtonDown(1))ClearResources();
     }
 
     private void Start()
@@ -91,26 +97,44 @@ public class BuildingSpawner : MonoBehaviour
             ghostInstance.transform.position = pos;
     }
 
-    public void PlaceBuilding(Vector3 pos, bool isEmpty)
+    public GameObject PlaceBuilding(Vector3 pos, bool isEmpty)
     {
         Debug.LogError($"Im trying to build broo!!!");
 
         if (buildingPrefab == null || isEmpty)
         {
             Debug.Log("❗ Building not loaded yet");
-            return;
+            return null;
         }
         else if (!isEmpty && bank.SpendMoney(20))
         {
             var obj = Instantiate(buildingPrefab, pos, Quaternion.identity);
+            UnitSpawnCheck(obj);
             tweenService.SpawnScaleTween(obj.transform.localScale,obj,0.5f);
             Destroy(ghostInstance);
-            sfxPlayer.PlayCreateSFX();
-            obj.GetComponent<TrapVfxPlayer>().ShowVfx();
             ghostInstance = null;
             ClearResources();
+            return obj;
         }
-        
+
+        return null;
+    }
+
+    private void UnitSpawnCheck(GameObject unit)
+    {
+        if (unit.TryGetComponent(out UnitAi unitAi))
+        {
+            unitAi.EnableCollider();
+            unitAi.StartWorkWithRealUnit();
+            unitAi.PlaySpawnOneShot();
+            unitAi.PlaySpawnVfx();
+        }
+        else
+        {
+            sfxPlayer.PlayCreateSFX();
+            unit.GetComponent<TrapVfxPlayer>().ShowVfx();
+            return;
+        }
     }
 
     void SetGhostMaterialTransparent(GameObject obj)
@@ -124,7 +148,10 @@ public class BuildingSpawner : MonoBehaviour
                 mat.color = Color.yellow;
             }
         }
-        obj.GetComponent<TrapVfxPlayer>().HideVfx();
+        if(obj.TryGetComponent(out TrapVfxPlayer trapVfxPlayer))
+            trapVfxPlayer.HideVfx();
+        else
+            return;
     }
 
     public void ClearResources()

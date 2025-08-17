@@ -2,11 +2,11 @@
 
 namespace CodeBase.UnitS.AI
 {
-    public class IdleState : IUnitState
+    public class GhostState : IUnitState
     {
         private UnitAnimationPlayer unitAnimationPlayer;
         private UnitAi unitAi;
-        public IdleState(UnitAnimationPlayer _unitAnimationPlayer,UnitAi _unitAi)
+        public GhostState(UnitAnimationPlayer _unitAnimationPlayer,UnitAi _unitAi)
         {
             unitAnimationPlayer = _unitAnimationPlayer;
             unitAi = _unitAi;
@@ -14,15 +14,12 @@ namespace CodeBase.UnitS.AI
 
         public void EnterState()
         {
-            Debug.LogWarning("Im Idle Boy!");
             unitAnimationPlayer.PlayIdleAnimation();
         }
 
         public void Excute()
         {
             unitAnimationPlayer.PlayIdleAnimation();
-            if(unitAi.FindTarget())
-                unitAi.SwitchState(new FollowingState(unitAi));
         }
 
         public void ExitState()
@@ -31,4 +28,3 @@ namespace CodeBase.UnitS.AI
         }
     }
 }
-

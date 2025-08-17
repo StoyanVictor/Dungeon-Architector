@@ -1,5 +1,4 @@
-﻿using System;
-using CodeBase.EnemyHero;
+﻿using CodeBase.EnemyHero;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -11,11 +10,25 @@ namespace CodeBase.UnitS.AI
         [SerializeField] private NavMeshAgent agent;
         [SerializeField] private float range;
         [SerializeField] private float attackrange;
+        [SerializeField] private Collider _collider;
+        [SerializeField] private FabricCreatingSfxPlayer fabricCreatingSfxPlayer;
+        [SerializeField] private UnitSpawnVfxPlayer unitSpawnVfxPlayer;
         public Transform currentTarget;
         public UnitAnimationPlayer unitAnimationPlayer;
         private IUnitState currentState;
 
         public Transform GetCurrentTarget() => currentTarget;
+
+        public void EnableCollider() => _collider.enabled = true;
+        public void PlaySpawnVfx() => unitSpawnVfxPlayer.PlaySpawnVfx();
+        public void PlaySpawnOneShot() => fabricCreatingSfxPlayer.PlayCreateSFX();
+
+        public void StartWorkWithRealUnit()
+        {
+            Debug.LogWarning($"Hi im trying to switch state to idle");
+            SwitchState(new IdleState(unitAnimationPlayer,this));
+        }
+
         public void SwitchState(IUnitState state)
         {
             if (currentState != null)
@@ -85,17 +98,16 @@ namespace CodeBase.UnitS.AI
         }
         private void Update()
         {
+            Debug.LogWarning($"Im trying to find target");
+            Debug.LogWarning($"{currentState}");
+
             currentState.Excute();
         }
 
         private void Awake()
         {
             unitAnimationPlayer = new UnitAnimationPlayer(animator);
-        }
-
-        private void Start()
-        {
-            SwitchState(new IdleState(unitAnimationPlayer,this));
+            SwitchState(new GhostState(unitAnimationPlayer,this));
         }
     }
 }
