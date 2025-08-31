@@ -2,7 +2,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public abstract class MultiTargetTrapBase : MonoBehaviour
+public abstract class MultiTargetTrapBase<T> : MonoBehaviour where T : Component,ITrapEffect
 {
     public float effectRange;
     
@@ -13,7 +13,7 @@ public abstract class MultiTargetTrapBase : MonoBehaviour
         {
             if (obj.TryGetComponent(out EnemyHeroAiBase unitAi))
             {
-                obj.AddComponent<PoisonEffect>().StartPoison(5,5);
+                unitAi.AddComponent<T>().StartEffect(5,5);
                 return true;
             }
         }

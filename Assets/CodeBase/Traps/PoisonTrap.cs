@@ -2,23 +2,9 @@
 using CodeBase.EnemyHero;
 using UnityEngine;
 
-public class PoisonTrap : MultiTargetTrapBase
+public class PoisonTrap : MultiTargetTrapBase<PoisonEffect>
 {
-    [SerializeField] private float effectRange;
     private bool canCast;
-    public bool EffectUsing()
-    {
-        var objects = Physics.OverlapSphere(transform.position, effectRange);
-        foreach (var obj in objects)
-        {
-            if (obj.TryGetComponent(out EnemyHeroAiBase unitAi))
-            {
-                unitAi.gameObject.AddComponent<PoisonEffect>().StartPoison(5,5);
-                return true;
-            }
-        }
-        return false;
-    }
 
     private void Update()
     {

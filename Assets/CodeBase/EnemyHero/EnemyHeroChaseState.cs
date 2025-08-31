@@ -13,7 +13,6 @@ namespace CodeBase.EnemyHero
 
         public void EnterState()
         {
-            Debug.LogWarning("Im starting chasing!");
         }
 
         public void Excute()

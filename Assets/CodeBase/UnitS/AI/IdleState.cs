@@ -14,7 +14,6 @@ namespace CodeBase.UnitS.AI
 
         public void EnterState()
         {
-            Debug.LogWarning("Im Idle Boy!");
             unitAnimationPlayer.PlayIdleAnimation();
         }
 
@@ -22,12 +21,11 @@ namespace CodeBase.UnitS.AI
         {
             unitAnimationPlayer.PlayIdleAnimation();
             if(unitAi.FindTarget())
-                unitAi.SwitchState(new FollowingState(unitAi));
+                unitAi.SwitchState(new FollowingState(unitAi, unitAnimationPlayer));
         }
 
         public void ExitState()
         {
-            Debug.LogWarning($"ImNot Idling !");
         }
     }
 }

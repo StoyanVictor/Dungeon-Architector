@@ -2521,9 +2521,9 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 0.3
-        value: {x: 0, y: 0.5283862, z: 0.9}
-        inSlope: {x: 0, y: -0.22081116, z: 0}
-        outSlope: {x: 0, y: -0.22081116, z: 0}
+        value: {x: -0.24, y: 0.69, z: 0.9}
+        inSlope: {x: 0, y: 0, z: 0}
+        outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
@@ -2531,8 +2531,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.33333334
         value: {x: 0.69, y: 0.52, z: 0.52}
-        inSlope: {x: 17.7, y: -0.2836366, z: -17.099998}
-        outSlope: {x: 17.7, y: -0.2836366, z: -17.099998}
+        inSlope: {x: 21.300001, y: -6.9, z: -17.099998}
+        outSlope: {x: 21.300001, y: -6.9, z: -17.099998}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
@@ -45534,7 +45534,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.3
-        value: 0
+        value: -0.24
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -45544,8 +45544,8 @@ AnimationClip:
       - serializedVersion: 3
         time: 0.33333334
         value: 0.69
-        inSlope: 17.7
-        outSlope: 17.7
+        inSlope: 21.300001
+        outSlope: 21.300001
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
@@ -45590,10 +45590,19 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
+        time: 0.3
+        value: 0.69
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 136
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
         time: 0.33333334
         value: 0.52
-        inSlope: -0.2836366
-        outSlope: -0.2836366
+        inSlope: -6.9
+        outSlope: -6.9
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334

@@ -21,6 +21,4 @@ public abstract class OneTargetTrapBase : MonoBehaviour
     }
 
     public Transform GetCurrentTarget() => currentTarget;
-    
-    
 }

@@ -25,7 +25,6 @@ namespace CodeBase.UnitS.AI
 
         public void StartWorkWithRealUnit()
         {
-            Debug.LogWarning($"Hi im trying to switch state to idle");
             SwitchState(new IdleState(unitAnimationPlayer,this));
         }
 
@@ -98,9 +97,6 @@ namespace CodeBase.UnitS.AI
         }
         private void Update()
         {
-            Debug.LogWarning($"Im trying to find target");
-            Debug.LogWarning($"{currentState}");
-
             currentState.Excute();
         }
 

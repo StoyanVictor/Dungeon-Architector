@@ -12,7 +12,6 @@ namespace CodeBase.UnitS.AI
         }
         public void EnterState()
         {
-            Debug.LogWarning("Im attackState");
         }
 
         public void Excute()
@@ -24,7 +23,7 @@ namespace CodeBase.UnitS.AI
                 unitAi.Attack();
             }
             else if(unitAi.FindTarget() && !unitAi.CheckForAttackRange())
-                unitAi.SwitchState(new FollowingState(unitAi));
+                unitAi.SwitchState(new FollowingState(unitAi,unitAi.unitAnimationPlayer));
         }
 
         public void ExitState()

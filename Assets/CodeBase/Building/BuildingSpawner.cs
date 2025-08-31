@@ -15,11 +15,13 @@ public class BuildingSpawner : MonoBehaviour
     private SpawnTweenService tweenService;
     private AsyncOperationHandle<GameObject> loadHandle;
     private Bank bank;
+    private DiContainer diContainer;
 
     [Inject]
-    public void Construct(Bank _bank)
+    public void Construct(Bank _bank,DiContainer _diContainer)
     {
         bank = _bank;
+        diContainer = _diContainer;
     }
 
     private void Update()
@@ -108,7 +110,7 @@ public class BuildingSpawner : MonoBehaviour
         }
         else if (!isEmpty && bank.SpendMoney(20))
         {
-            var obj = Instantiate(buildingPrefab, pos, Quaternion.identity);
+            var obj = diContainer.InstantiatePrefab(buildingPrefab, pos, Quaternion.identity,null);
             UnitSpawnCheck(obj);
             tweenService.SpawnScaleTween(obj.transform.localScale,obj,0.5f);
             Destroy(ghostInstance);

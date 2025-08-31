@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 200
   armour: 50
-  dmg: 10
+  dmg: 30

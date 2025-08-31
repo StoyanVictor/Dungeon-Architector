@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -35,6 +34,14 @@ public class UnitHealth : MonoBehaviour,IDamagable
         Debug.LogError(configurator);
         SetupHealthCount(configurator);
         SetMaxHP(health);
+        configurator.OnLevelUp += UpgradeHealthComponent;
+    }
+
+    private void UpgradeHealthComponent()
+    {
+        SetupHealthCount(configurator);
+        SetMaxHP(health);
+        SetHP(health);
     }
 
     private void PlayerDeath()

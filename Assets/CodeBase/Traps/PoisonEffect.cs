@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class PoisonEffect : MonoBehaviour
+public class PoisonEffect : MonoBehaviour,ITrapEffect
 {
     private EnemyHeroHealth enemyHeroHealth;
     private void Init()
@@ -9,7 +9,7 @@ public class PoisonEffect : MonoBehaviour
         enemyHeroHealth = GetComponent<EnemyHeroHealth>();
     }
 
-    public void StartPoison(int poisonDuration, int damage)
+    public void StartEffect(int poisonDuration, int damage)
     {
         Init();
         StartCoroutine(PoisonTicking(poisonDuration, damage));

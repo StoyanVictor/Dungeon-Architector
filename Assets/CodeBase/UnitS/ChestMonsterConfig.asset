@@ -10,18 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8060762ae38a423fbc3cf9c3fb8089e3, type: 3}
-  m_Name: MeleeSkeletonConfig
+  m_Name: ChestMonsterConfig
   m_EditorClassIdentifier: 
   UnitDatas:
   - hp: 150
-    armour: 10
-    dmg: 30
-    updatingCost: 20
-  - hp: 200
     armour: 20
-    dmg: 50
+    dmg: 10
     updatingCost: 40
+  - hp: 200
+    armour: 25
+    dmg: 20
+    updatingCost: 80
   - hp: 250
     armour: 30
-    dmg: 60
-    updatingCost: 60
+    dmg: 30
+    updatingCost: 120
+  - hp: 300
+    armour: 35
+    dmg: 40
+    updatingCost: 400

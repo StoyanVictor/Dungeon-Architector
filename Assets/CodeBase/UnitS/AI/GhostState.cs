@@ -24,7 +24,6 @@ namespace CodeBase.UnitS.AI
 
         public void ExitState()
         {
-            Debug.LogWarning($"ImNot Idling !");
         }
     }
 }

@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class SlowEffect : MonoBehaviour
+public class SlowEffect : MonoBehaviour, ITrapEffect
 {
     private NavMeshAgent agent;
     private void Init()
@@ -10,7 +10,7 @@ public class SlowEffect : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
     }
 
-    public void StartSlowing(int poisonDuration)
+    public void StartEffect(int poisonDuration,int value)
     {
         Init();
         StartCoroutine(SlowTicking(poisonDuration));

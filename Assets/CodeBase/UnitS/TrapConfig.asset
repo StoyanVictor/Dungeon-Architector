@@ -12,6 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8060762ae38a423fbc3cf9c3fb8089e3, type: 3}
   m_Name: TrapConfig
   m_EditorClassIdentifier: 
-  hp: 100
-  armour: 0
-  dmg: 0
+  UnitDatas:
+  - hp: 200
+    armour: 10
+    dmg: 3
+    updatingCost: 50
+  - hp: 400
+    armour: 20
+    dmg: 5
+    updatingCost: 100

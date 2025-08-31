@@ -12,16 +12,15 @@ public class EnemyHeroAttackState : IEnemyHeroState
 
     public void EnterState()
     {
-        Debug.LogWarning("Im start attacking!");
     }
 
     public void Excute()
     {
-        if (enemyAi.CheckForAttackRange())
+        if (enemyAi.CheckForAttackRange() && enemyAi.FindTarget() )
         {
             enemyAi.Attack();
         }
-        else if(enemyAi.FindTarget() && !enemyAi.CheckForAttackRange())
+        else if(enemyAi.FindTarget() && !enemyAi.CheckForAttackRange() || enemyAi.maintTarget != null)
             enemyAi.SwitchState(new EnemyHeroChaseState(enemyAi));
                 
     }

@@ -6,19 +6,22 @@ namespace CodeBase.UnitS.AI
     public class FollowingState : IUnitState
     {
         private UnitAi unitAi;
-        
-        public FollowingState(UnitAi ai)
+        private UnitAnimationPlayer unitAnimationPlayer;
+
+        public FollowingState(UnitAi ai, UnitAnimationPlayer _unitAnimationPlayer)
         {
+            unitAnimationPlayer = _unitAnimationPlayer;
             unitAi = ai;
         }
 
         public void EnterState()
         {
-            Debug.LogWarning("Im Following");
         }
 
         public void Excute()
         {
+            if(!unitAi.FindTarget())
+                unitAi.SwitchState(new IdleState(unitAnimationPlayer,unitAi));
             if (unitAi.FindTarget() && !unitAi.CheckForAttackRange())
             {
                 unitAi.Move();
