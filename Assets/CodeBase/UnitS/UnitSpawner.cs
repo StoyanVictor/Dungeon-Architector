@@ -1,5 +1,6 @@
 using CodeBase;
 using CodeBase.TweenServices;
+using UniRx;
 using UnityEngine;
 using Zenject;
 
@@ -28,20 +29,21 @@ public class UnitSpawner : MonoBehaviour
         unitType = _unitType;
     }
 
-    
-
-    void Update()
+    private void Start()
     {
-        
-        if (Input.GetMouseButtonDown(1) && bank.SpendMoney(10))
+        Observable.EveryUpdate().Where(_ => Input.GetMouseButtonDown(1)).Subscribe(_ => SpawnUnit()).AddTo(this);
+    }
+
+    private void SpawnUnit()
+    {
+        if (bank.SpendMoney(10))
         {
             Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
 
             if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, targetLayer))
             {
-                Debug.LogWarning(unitType);
-               unitFactory.Create(GetUnitType(),hit.point);
-               sfxPlayer.PlayCreateSFX();
+                unitFactory.Create(GetUnitType(),hit.point);
+                sfxPlayer.PlayCreateSFX();
             }
         }
     }

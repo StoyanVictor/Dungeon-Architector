@@ -2,6 +2,7 @@
 using CodeBase;
 using CodeBase.TweenServices;
 using CodeBase.UnitS.AI;
+using UniRx;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -24,14 +25,10 @@ public class BuildingSpawner : MonoBehaviour
         diContainer = _diContainer;
     }
 
-    private void Update()
-    {
-        if(Input.GetMouseButtonDown(1))ClearResources();
-    }
-
     private void Start()
     {
         tweenService = new SpawnTweenService();
+        Observable.EveryUpdate().Where(_ => Input.GetMouseButtonDown(1)).Subscribe(_ => ClearResources()).AddTo(this);
     }
 
     public bool IsBuildingPrefabAvailable()
@@ -52,7 +49,6 @@ public class BuildingSpawner : MonoBehaviour
     
     public void SelectBuilding(string buildingId)
     {
-        Debug.LogError("Hellow");
         loadHandle = Addressables.LoadAssetAsync<GameObject>(buildingId);
         loadHandle.Completed += handle =>
         {
@@ -78,7 +74,6 @@ public class BuildingSpawner : MonoBehaviour
         }
         else if (!isEmpty && buildingPrefab != null && ghostInstance == null)
         {
-            Debug.LogError(buildingPrefab);
             ghostInstance = Instantiate(buildingPrefab);
             SetGhostMaterialTransparent(ghostInstance);
             return;
@@ -101,8 +96,6 @@ public class BuildingSpawner : MonoBehaviour
 
     public GameObject PlaceBuilding(Vector3 pos, bool isEmpty)
     {
-        Debug.LogError($"Im trying to build broo!!!");
-
         if (buildingPrefab == null || isEmpty)
         {
             Debug.Log("❗ Building not loaded yet");
@@ -165,7 +158,10 @@ public class BuildingSpawner : MonoBehaviour
         }
 
         if (ghostInstance != null)
+        {
             Destroy(ghostInstance);
+        }
+
     }
     
 }

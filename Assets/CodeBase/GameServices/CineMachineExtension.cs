@@ -1,10 +1,11 @@
 using Cinemachine;
+using UniRx;
 using UnityEngine;
 
 public class CineMachineExtension : MonoBehaviour
 {
     private CinemachineFreeLook freeLook;
-
+    public TargetMover targetMover;
     public string mouseX = "Mouse X";
     public string mouseY = "Mouse Y";
 
@@ -12,17 +13,20 @@ public class CineMachineExtension : MonoBehaviour
     {
         freeLook = GetComponent<CinemachineFreeLook>();
 
-        // Чтобы Cinemachine не ловил мышь напрямую
         freeLook.m_XAxis.m_InputAxisName = "";
         freeLook.m_YAxis.m_InputAxisName = "";
+
+        Observable.EveryUpdate().Subscribe(_ => Move(Input.GetMouseButton(1)))
+            .AddTo(this);
     }
 
-    void Update()
+    private void Move(bool canMove)
     {
-        if (Input.GetMouseButton(1)) // ПКМ
+        if (canMove)
         {
             freeLook.m_XAxis.m_InputAxisValue = Input.GetAxis(mouseX);
             freeLook.m_YAxis.m_InputAxisValue = Input.GetAxis(mouseY);
+            targetMover.MoveCamera();
         }
         else
         {

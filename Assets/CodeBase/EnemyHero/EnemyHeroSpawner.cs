@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using CodeBase.TweenServices;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using Zenject;
 
@@ -34,17 +32,16 @@ namespace CodeBase.EnemyHero
             if (enemiesAlive.Count == 1)
             {
                 enemiesAlive.RemoveAt(0);
-                Debug.LogAssertion($"Im starting new wave");
-                StartCoroutine(WaveTimer(timerShower.GetTimerDuration()));
-                Debug.LogAssertion($"Im starting new wave1");
+                WaveTimer();
             }
-            else enemiesAlive.RemoveAt(0);
+            else if (enemiesAlive.Count > 1)
+                enemiesAlive.RemoveAt(0);
+            else return;
         }
 
-        private IEnumerator WaveTimer(int s)
+        private async void WaveTimer()
         {
-            timerShower.StartTimer();
-            yield return new WaitForSeconds(s);
+            await timerShower.StartTimer();
             SpawnEnemy();
         }
 
@@ -53,7 +50,7 @@ namespace CodeBase.EnemyHero
             
             if (lvlSwitcher.GetLevels()[lvlSwitcher.GetCurrentLvlIndex()].LevelWaves.Count <= currentWave)
             {
-                Debug.LogWarning($"I win level: {lvlSwitcher.GetCurrentLvlIndex()}");
+                Debug.LogWarning($"<color=green>I win level:</color> {lvlSwitcher.GetCurrentLvlIndex()}");
                 lvlSwitcher.SwitchLvl();
                 currentWave = 0;
             }
@@ -69,7 +66,7 @@ namespace CodeBase.EnemyHero
 
         private void Awake()
         {
-            StartCoroutine(WaveTimer(timerShower.GetTimerDuration()));
+            WaveTimer();
         }
         
     }

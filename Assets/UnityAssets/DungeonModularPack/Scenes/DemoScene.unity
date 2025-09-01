@@ -605,7 +605,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a45ca7cb071849c9bb8771ea36d89818, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moneyCount: 100
+  moneyCount:
+    value: 100
   moneyCountText: {fileID: 627185630}
 --- !u!4 &151434922
 Transform:
@@ -1035,6 +1036,7 @@ GameObject:
   - component: {fileID: 326055286}
   - component: {fileID: 326055289}
   - component: {fileID: 326055288}
+  - component: {fileID: 326055290}
   m_Layer: 0
   m_Name: Timer
   m_TagString: Untagged
@@ -1182,6 +1184,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   createSfx: {fileID: 8300000, guid: 856ea1c2e2d198a42a6ad344eced7eb2, type: 3}
   audioSource: {fileID: 326055288}
+--- !u!114 &326055290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 326055285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d9a4d9f057113c4fa1f01179fb8a2c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &342350454
 GameObject:
   m_ObjectHideFlags: 0
@@ -1556,8 +1570,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 406481320}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.10902099, y: 0.89086926, z: -0.30432752, w: 0.31914118}
-  m_LocalPosition: {x: 10.045052, y: 6.92, z: 1.9275795}
+  m_LocalRotation: {x: 0.098533005, y: 0.900339, z: -0.2750506, w: 0.32253376}
+  m_LocalPosition: {x: 10.746562, y: 5.7999973, z: 1.0741144}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5418,7 +5432,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1324086559}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.59334975, y: 0.625971, z: 0.13705897, w: -0.48714593}
+  m_LocalRotation: {x: 0.60895306, y: 0.6211575, z: 0.15744299, w: -0.4674947}
   m_LocalPosition: {x: -0.00000020134738, y: -0.00000068633085, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -6516,8 +6530,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1790151192}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.6106537, y: 0.62057924, z: 0.15970682, w: -0.46527106}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.625533, y: 0.6150284, z: 0.17990255, w: -0.4450659}
+  m_LocalPosition: {x: -0.000000033557896, y: -0.00000011438847, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6684,6 +6698,7 @@ GameObject:
   - component: {fileID: 1891691267}
   - component: {fileID: 1891691266}
   - component: {fileID: 1891691271}
+  - component: {fileID: 1891691272}
   m_Layer: 7
   m_Name: Goal
   m_TagString: MainGoal
@@ -6812,6 +6827,46 @@ MonoBehaviour:
   currentLvl: 0
   updateUi: {fileID: 0}
   canShowUpgradeMenu: 0
+  animator: {fileID: 0}
+--- !u!114 &1891691272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891691265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 635300929c22c9b4cb909e873f39ac9d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lossingScreen: {fileID: 893321256549090932, guid: debb57e5ce04956459883dc18edb4bfa,
+    type: 3}
+  mainCanvas: {fileID: 198253416}
+  damageCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 10
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 10
+      value: 100
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &1903128541
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7156,8 +7211,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1990945516}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.60211253, y: 0.62337446, z: 0.14842229, w: -0.4762727}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.6173559, y: 0.6181909, z: 0.16871555, w: -0.45634076}
+  m_LocalPosition: {x: -0.000000033557896, y: -0.00000011438847, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7753,6 +7808,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b8c79b8f25f71943b9f5db3b84c339f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetMover: {fileID: 320282482}
   mouseX: Mouse X
   mouseY: Mouse Y
 --- !u!114 &2023455904
@@ -7769,16 +7825,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_CollideAgainst:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 128
   m_IgnoreTag: 
   m_TransparentLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_MinimumDistanceFromTarget: 0.1
+  m_MinimumDistanceFromTarget: 0.01
   m_AvoidObstacles: 1
   m_DistanceLimit: 0
   m_MinimumOcclusionTime: 0
-  m_CameraRadius: 0.1
+  m_CameraRadius: 0.2
   m_Strategy: 1
   m_MaximumEffort: 4
   m_SmoothingTime: 0

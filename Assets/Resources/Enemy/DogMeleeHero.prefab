@@ -4923,13 +4923,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6026019003200311549, guid: 2dfbb63c9cdf7504faf4ff26b0581598,
         type: 3}
+      propertyPath: m_Height
+      value: 1.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6026019003200311549, guid: 2dfbb63c9cdf7504faf4ff26b0581598,
+        type: 3}
       propertyPath: m_Radius
-      value: 0.81
+      value: 0.33
       objectReference: {fileID: 0}
     - target: {fileID: 6598696741164955861, guid: 2dfbb63c9cdf7504faf4ff26b0581598,
         type: 3}
       propertyPath: m_Speed
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6598696741164955861, guid: 2dfbb63c9cdf7504faf4ff26b0581598,
+        type: 3}
+      propertyPath: m_Height
+      value: 1.3
       objectReference: {fileID: 0}
     - target: {fileID: 6598696741164955861, guid: 2dfbb63c9cdf7504faf4ff26b0581598,
         type: 3}

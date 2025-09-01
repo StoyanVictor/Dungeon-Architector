@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -13,17 +15,17 @@ public class SlowEffect : MonoBehaviour, ITrapEffect
     public void StartEffect(int poisonDuration,int value)
     {
         Init();
-        StartCoroutine(SlowTicking(poisonDuration));
+        SlowTicking(poisonDuration);
     }
 
     private void UseSlow() => agent.speed = 1;
 
-    private IEnumerator SlowTicking(int timerDuration)
+    private async UniTask SlowTicking(int timerDuration)
     {
         while (timerDuration > 0)
         {
             UseSlow();
-            yield return new WaitForSeconds(1f);
+            await UniTask.Delay(TimeSpan.FromSeconds(1));
             timerDuration--;
         }
 

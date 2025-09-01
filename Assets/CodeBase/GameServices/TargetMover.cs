@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-
 public class TargetMover : MonoBehaviour
 {
     [Header("Movement Settings")]
@@ -9,7 +8,8 @@ public class TargetMover : MonoBehaviour
     [Header("Camera Reference")]
     public Transform cameraTransform; // сюда кинь MainCamera
 
-    void Update()
+
+    public void MoveCamera()
     {
         float speed = Input.GetKey(KeyCode.LeftShift) ? moveSpeed * fastMultiplier : moveSpeed;
 

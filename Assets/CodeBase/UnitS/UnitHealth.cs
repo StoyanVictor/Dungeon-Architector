@@ -31,7 +31,6 @@ public class UnitHealth : MonoBehaviour,IDamagable
 
     private void Start()
     {
-        Debug.LogError(configurator);
         SetupHealthCount(configurator);
         SetMaxHP(health);
         configurator.OnLevelUp += UpgradeHealthComponent;
@@ -46,7 +45,6 @@ public class UnitHealth : MonoBehaviour,IDamagable
 
     private void PlayerDeath()
     {
-        Debug.LogWarning("Unit Died");
         Destroy(this.gameObject);
     }
 }

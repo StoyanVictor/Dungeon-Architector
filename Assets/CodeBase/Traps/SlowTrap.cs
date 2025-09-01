@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using CodeBase.EnemyHero;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 public class SlowTrap : MultiTargetTrapBase<SlowEffect>
@@ -8,14 +10,14 @@ public class SlowTrap : MultiTargetTrapBase<SlowEffect>
 
     private void Update()
     {
-        if (!canCast) StartCoroutine(SlowCasting(5));
+        if (!canCast) SlowCasting(5);
     }
 
-    private IEnumerator SlowCasting(int s)
+    private async UniTask SlowCasting(int s)
     {
         canCast = true;
         EffectUsing();
-        yield return new WaitForSeconds(s);
+        await UniTask.Delay(TimeSpan.FromSeconds(s));
         canCast = false;
     }
 }

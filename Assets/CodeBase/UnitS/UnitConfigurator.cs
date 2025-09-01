@@ -12,16 +12,17 @@ public class UnitConfigurator : MonoBehaviour
     [SerializeField] private int currentLvl;
     [SerializeField] private GameObject updateUi;
     [SerializeField] private bool  canShowUpgradeMenu;
+    [SerializeField] private Animator  animator;
+    
     public Action OnLevelUp;
     private Bank bank;
-
 
     [Inject]
     public void Construct(Bank _bank)
     {
         bank = _bank;
     }
-
+    
     public int GetCurrentLvl() => currentLvl;
     private void OnMouseDown()
     {
@@ -56,7 +57,7 @@ public class UnitConfigurator : MonoBehaviour
         }
         else
         {
-            Debug.Log($"Have no money for update!");
+            Debug.Log($"<color=orange>Have no money for update!</color>");
         }
     }
     
@@ -64,9 +65,10 @@ public class UnitConfigurator : MonoBehaviour
     public int GetDmgCount() => dmg;
     private void ConfigData(UnitConfigData _config)
     {
-        hp = config.UnitDatas[currentLvl].hp;
-        armour = config.UnitDatas[currentLvl].armour;
-        dmg = config.UnitDatas[currentLvl].dmg;
+        hp = _config.UnitDatas[currentLvl].hp;
+        armour = _config.UnitDatas[currentLvl].armour;
+        dmg = _config.UnitDatas[currentLvl].dmg;
+        animator.SetFloat("AttackSpeed", _config.UnitDatas[currentLvl].attackSpeed);
     }
 
 

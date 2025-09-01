@@ -12,16 +12,7 @@ public class CellOutliner : MonoBehaviour
         _selectColor = FindObjectOfType<SelectColor>();
         originalMaterial = GetComponent<Renderer>().material;
         originalColor = originalMaterial.color;
-        // cellBuildingLogic.OnCellAim += StartOutline;
-        // cellBuildingLogic.OnCellAimCancel += CancelOutline;
     }
-
-    // private void OnDestroy()
-    // {
-    //     cellBuildingLogic.OnCellAim -= StartOutline;
-    //     cellBuildingLogic.OnCellAimCancel -= CancelOutline;
-    // }
-
     public void StartOutline(bool cellStatus)
     {
         if(!cellStatus)

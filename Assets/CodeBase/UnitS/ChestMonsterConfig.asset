@@ -17,15 +17,19 @@ MonoBehaviour:
     armour: 20
     dmg: 10
     updatingCost: 40
+    attackSpeed: 1
   - hp: 200
     armour: 25
     dmg: 20
     updatingCost: 80
+    attackSpeed: 1.5
   - hp: 250
     armour: 30
     dmg: 30
     updatingCost: 120
+    attackSpeed: 2
   - hp: 300
     armour: 35
     dmg: 40
     updatingCost: 400
+    attackSpeed: 2.2

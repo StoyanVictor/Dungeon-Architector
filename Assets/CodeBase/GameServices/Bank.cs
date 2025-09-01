@@ -1,13 +1,12 @@
-﻿using System;
-using TMPro;
+﻿using TMPro;
+using UniRx;
 using UnityEngine;
 using Zenject;
-
 namespace CodeBase
 {
     public class Bank : MonoBehaviour
     {
-        [SerializeField] private int moneyCount;
+        [SerializeField] private ReactiveProperty<int> moneyCount = new ReactiveProperty<int>(100);
         [SerializeField] private TextMeshProUGUI moneyCountText;
         private EventBus eventBus;
 
@@ -19,24 +18,20 @@ namespace CodeBase
 
         private void AddMoney()
         {
-            moneyCount += 50;
+            moneyCount.Value += 50;
         }
 
         private void Start()
         {
             eventBus.OnEnemyDied += AddMoney;
-        }
-
-        private void Update()
-        {
-            moneyCountText.text = "Money: "+ moneyCount.ToString();
+            moneyCount.Subscribe(newValue => moneyCountText.text = "Money: " + moneyCount.ToString());
         }
 
         public bool SpendMoney(int count)
         {
-            if (moneyCount - count >= 0)
+            if (moneyCount.Value - count >= 0)
             {
-                moneyCount -= count;
+                moneyCount.Value -= count;
                 return true;
             }
 

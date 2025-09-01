@@ -17,7 +17,6 @@ public class UnitSelector : MonoBehaviour
     private void Awake()
     {
         button = GetComponent<Button>();
-        Debug.LogError(button);
         button.onClick.AddListener(() => unitSpawner.SetUnitType(unitType));
     }
 }

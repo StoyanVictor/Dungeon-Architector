@@ -14,6 +14,7 @@ public class EnemyRangeHeroAi : EnemyHeroAiBase
         if (FindTarget() && !CheckForAttackRange())
         {
             animationPlayer.PlayWalkAnimation();
+            LookAtTarget();
             agent.SetDestination(GetCurrentTarget().transform.position);
         }
         else
@@ -32,6 +33,16 @@ public class EnemyRangeHeroAi : EnemyHeroAiBase
         if (CheckForAttackRange())
         {
             animationPlayer.PlayAttackAnimation();
+            LookAtTarget();
+        }
+    }
+     private void LookAtTarget()
+    {
+        if (currentTarget != null)
+        {
+            Vector3 lookPos = GetCurrentTarget().position - transform.position;
+            lookPos.y = 0;
+            transform.rotation = Quaternion.LookRotation(lookPos);
         }
     }
 }

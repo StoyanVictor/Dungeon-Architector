@@ -2,5 +2,6 @@
 {
     Melee,
     Range,
-    Tank
+    Tank,
+    Boss
 }

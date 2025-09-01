@@ -11,6 +11,7 @@ namespace CodeBase.EnemyHero
         private GameObject melee;
         private GameObject range;
         private GameObject dogMelee;
+        private GameObject boss;
         private SpawnTweenService spawnTweenService;
 
         
@@ -31,6 +32,7 @@ namespace CodeBase.EnemyHero
             melee = Resources.Load<GameObject>("Enemy/MeleeHero");
             range = Resources.Load<GameObject>("Enemy/RangeHero");
             dogMelee = Resources.Load<GameObject>("Enemy/DogMeleeHero");
+            boss = Resources.Load<GameObject>("Enemy/MeleeBoss");
         }
 
         public void  Create(EnemyHeroType enemyHeroType,Transform pos)
@@ -38,10 +40,13 @@ namespace CodeBase.EnemyHero
             switch (enemyHeroType)
             {
                 case EnemyHeroType.Melee:
-                    Debug.LogWarning(_diContainer);
                 var _melee = _diContainer.InstantiatePrefab(melee,pos.position,Quaternion.identity,null);
                     spawnTweenService.SpawnScaleTween(_melee.transform.localScale,_melee,0.4f);
                 break;
+                case EnemyHeroType.Boss:
+                    var _boss = _diContainer.InstantiatePrefab(boss,pos.position,Quaternion.identity,null);
+                    spawnTweenService.SpawnScaleTween(_boss.transform.localScale,_boss,0.4f);
+                    break;
                 case EnemyHeroType.Range:
                 var _range = _diContainer.InstantiatePrefab(range,pos.position,Quaternion.identity,null);
                 spawnTweenService.SpawnScaleTween(_range.transform.localScale,_range,0.4f);

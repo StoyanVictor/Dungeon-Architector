@@ -1,15 +1,15 @@
-using System.Collections;
+using System;
+using Cysharp.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using DG.Tweening;
+
 public class TimerShower : MonoBehaviour
 {
     [SerializeField] private int timerDuration = 10;
     [SerializeField] private TextMeshProUGUI timerText;
     [SerializeField] private FabricCreatingSfxPlayer SfxPlayer;
     private int standartTimerValue;
-
-    public int GetTimerDuration() => timerDuration;
 
     public void ShowZoomTimerText(TextMeshProUGUI text,float duration)
     {
@@ -19,10 +19,9 @@ public class TimerShower : MonoBehaviour
         sequence.Play();
     }
 
-    public void StartTimer()
+    public async UniTask StartTimer()
     {
-        StartCoroutine(TimerCoroutine());
-
+        await Timer();
     }
 
     public void ResetTimer() => timerDuration = standartTimerValue;
@@ -32,18 +31,17 @@ public class TimerShower : MonoBehaviour
         standartTimerValue = timerDuration;
     }
 
-    private IEnumerator TimerCoroutine()
+    private async UniTask Timer()
     {
         while (timerDuration > 0)
         {
             timerText.text = timerDuration.ToString();
-            yield return new WaitForSeconds(1f);
+            await UniTask.Delay(TimeSpan.FromSeconds(1));
             timerDuration--;
             SfxPlayer.PlayCreateSFX();
             ShowZoomTimerText(timerText, 0.4f);
         }
         timerText.text = "0";
         ResetTimer();
-        Debug.LogError("Reset timer was lauched!");
     }
 }

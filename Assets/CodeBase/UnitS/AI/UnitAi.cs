@@ -1,4 +1,5 @@
 ﻿using CodeBase.EnemyHero;
+using UniRx;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -16,6 +17,7 @@ namespace CodeBase.UnitS.AI
         public Transform currentTarget;
         public UnitAnimationPlayer unitAnimationPlayer;
         private IUnitState currentState;
+        public bool enableGizmos;
 
         public Transform GetCurrentTarget() => currentTarget;
 
@@ -59,7 +61,16 @@ namespace CodeBase.UnitS.AI
             if (CheckForAttackRange())
             {
                 unitAnimationPlayer.PlayAttackAnimation();
-                transform.LookAt(GetCurrentTarget());
+                LookAtTarget();
+            }
+        }
+        private void LookAtTarget()
+        {
+            if (currentTarget != null)
+            {
+                Vector3 lookPos = GetCurrentTarget().position - transform.position;
+                lookPos.y = 0;
+                transform.rotation = Quaternion.LookRotation(lookPos);
             }
         }
         public bool CheckForAttackRange()
@@ -89,21 +100,21 @@ namespace CodeBase.UnitS.AI
         }
         private void OnDrawGizmos()
         {
-            Gizmos.color = Color.red;
-            Gizmos.DrawSphere(transform.position,range);
-            Gizmos.color = Color.black;
-            Gizmos.DrawSphere(transform.position,attackrange);
-            
-        }
-        private void Update()
-        {
-            currentState.Excute();
+            if (enableGizmos)
+            {
+                Gizmos.color = Color.red;
+                Gizmos.DrawSphere(transform.position,range);
+                Gizmos.color = Color.black;
+                Gizmos.DrawSphere(transform.position,attackrange);
+            }
+
         }
 
         private void Awake()
         {
             unitAnimationPlayer = new UnitAnimationPlayer(animator);
             SwitchState(new GhostState(unitAnimationPlayer,this));
+            Observable.EveryUpdate().Subscribe(_ => currentState.Excute()).AddTo(this);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 public class PoisonEffect : MonoBehaviour,ITrapEffect
@@ -12,17 +13,17 @@ public class PoisonEffect : MonoBehaviour,ITrapEffect
     public void StartEffect(int poisonDuration, int damage)
     {
         Init();
-        StartCoroutine(PoisonTicking(poisonDuration, damage));
+        PoisonTicking(poisonDuration, damage);
     }
 
     private void UsePoisonDamage(int dmg) => enemyHeroHealth.TakeDamage(dmg);
 
-    private IEnumerator PoisonTicking(int timerDuration,int dmg)
+    private async UniTask PoisonTicking(int timerDuration,int dmg)
     {
         while (timerDuration > 0)
         {
             UsePoisonDamage(dmg);
-            yield return new WaitForSeconds(1f);
+            await UniTask.Delay(TimeSpan.FromSeconds(1));
             timerDuration--;
         }
         Destroy(this);

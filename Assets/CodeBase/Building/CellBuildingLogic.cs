@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using CodeBase.UnitS.AI;
 using UnityEngine;
 using Zenject;
-
 namespace CodeBase
 {
     public class CellBuildingLogic : MonoBehaviour
@@ -58,7 +57,6 @@ namespace CodeBase
 
                         var gamecell = cell.GetComponent<Cell>();
                         gamecell.FillInCell();
-                        Debug.LogError($"Cell id: {gamecell.cellId}, empty status : {gamecell.isEmpty}");
                     }
                 }
                 else return;
@@ -69,7 +67,6 @@ namespace CodeBase
 
         private void RemoveCells()
         {
-            Debug.LogError($"Cells count : {cellsList.Count}");
             int i = 0;
             if (cellsList.Count > 0)
             {

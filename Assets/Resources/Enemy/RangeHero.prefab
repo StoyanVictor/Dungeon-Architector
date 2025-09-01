@@ -742,7 +742,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 1248815240492774}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.3
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -751,7 +751,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2
+  m_Height: 1.8
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
@@ -931,6 +931,7 @@ MonoBehaviour:
   armour: 0
   dmg: 0
   config: {fileID: 11400000, guid: 60595c41d268e024999981c7155ca544, type: 2}
+  animator: {fileID: 95538263452871118}
 --- !u!114 &7122182820109313486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3385,6 +3386,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CFXR3 Hit Fire B (Air)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2504214343621411470, guid: 3ed0d324122d7b24eaec75c55c74aafc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4741991464754137355, guid: 3ed0d324122d7b24eaec75c55c74aafc,
         type: 3}

@@ -47,7 +47,7 @@ public class EnemyHeroHealth : MonoBehaviour,IDamagable
 
     private void PlayerDeath()
     {
-        Debug.LogWarning("Enemy Died");
+        Debug.Log("<color=red><size=15>Enemy Died</size></color>");
         eventBus.EnemyDies();
         Destroy(this.gameObject);
     }

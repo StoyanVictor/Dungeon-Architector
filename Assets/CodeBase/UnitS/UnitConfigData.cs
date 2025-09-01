@@ -15,4 +15,5 @@ public class UnitData
     public int armour;
     public int dmg;
     public int updatingCost;
+    public float attackSpeed;
 }

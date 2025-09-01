@@ -16,16 +16,19 @@ namespace CodeBase.EnemyHero
         public Animator animator;
         public float range;
         public float attackrange;
+        public bool enableGizmos;
 
         public Transform GetCurrentTarget() => currentTarget;
 
         private void OnDrawGizmos()
         {
-            Gizmos.color = Color.red;
-            Gizmos.DrawSphere(transform.position,range);
-            Gizmos.color = Color.black;
-            Gizmos.DrawSphere(transform.position,attackrange);
-            
+            if (enableGizmos)
+            {
+                Gizmos.color = Color.red;
+                Gizmos.DrawSphere(transform.position,range);
+                Gizmos.color = Color.black;
+                Gizmos.DrawSphere(transform.position,attackrange);
+            }
         }
 
         private void Awake()

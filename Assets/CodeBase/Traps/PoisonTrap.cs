@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using CodeBase.EnemyHero;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 public class PoisonTrap : MultiTargetTrapBase<PoisonEffect>
@@ -8,14 +10,14 @@ public class PoisonTrap : MultiTargetTrapBase<PoisonEffect>
 
     private void Update()
     {
-        if (!canCast) StartCoroutine(PoisonCasting(5));
+        if (!canCast) PoisonCasting(5);
     }
 
-    private IEnumerator PoisonCasting(int s)
+    private async UniTask PoisonCasting(int s)
     {
         canCast = true;
         EffectUsing();
-        yield return new WaitForSeconds(s);
+        await UniTask.Delay(TimeSpan.FromSeconds(s));
         canCast = false;
     }
 }
