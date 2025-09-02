@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "UnitConfig", menuName = "Units/CreateUnitConfig")]
 public class UnitConfigData : ScriptableObject
 {
-    public List<UnitData> UnitDatas;
+    public UnitData UnitDatas;
 }
 
 [Serializable]
@@ -16,4 +16,8 @@ public class UnitData
     public int dmg;
     public int updatingCost;
     public float attackSpeed;
+    
+    public AnimationCurve updatePriceProgression;
+    public AnimationCurve hpCountCurve;
+    public AnimationCurve curveDmgCount;
 }

@@ -16,10 +16,11 @@ namespace CodeBase.EnemyHero
         private EventBus eventBus;
 
         [Inject]
-        public void Construct(EnemyHeroFabric _enemyFabric,EventBus _eventBus)
+        public void Construct(EnemyHeroFabric _enemyFabric,EventBus _eventBus, LevelSwitcher _levelSwitcher)
         {
             enemyFabric = _enemyFabric;
             eventBus = _eventBus;
+            lvlSwitcher = _levelSwitcher;
         }
 
         private void OnEnable()

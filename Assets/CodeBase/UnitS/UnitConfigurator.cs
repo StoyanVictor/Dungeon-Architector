@@ -22,7 +22,8 @@ public class UnitConfigurator : MonoBehaviour
     {
         bank = _bank;
     }
-    
+
+    public int GetCurrentUpdatePrice() => (int)config.UnitDatas.updatePriceProgression.Evaluate(currentLvl);
     public int GetCurrentLvl() => currentLvl;
     private void OnMouseDown()
     {
@@ -49,7 +50,7 @@ public class UnitConfigurator : MonoBehaviour
     public void LvlUp()
     {
         print(bank);
-        if (bank.SpendMoney(config.UnitDatas[currentLvl].updatingCost))
+        if (bank.SpendMoney((int)config.UnitDatas.updatePriceProgression.Evaluate(currentLvl)))
         {
             currentLvl++;
             ConfigData(config);
@@ -65,10 +66,10 @@ public class UnitConfigurator : MonoBehaviour
     public int GetDmgCount() => dmg;
     private void ConfigData(UnitConfigData _config)
     {
-        hp = _config.UnitDatas[currentLvl].hp;
-        armour = _config.UnitDatas[currentLvl].armour;
-        dmg = _config.UnitDatas[currentLvl].dmg;
-        animator.SetFloat("AttackSpeed", _config.UnitDatas[currentLvl].attackSpeed);
+        hp = (int)_config.UnitDatas.hpCountCurve.Evaluate(currentLvl);
+        //armour = _config.UnitDatas[currentLvl].armour;
+        dmg = (int)_config.UnitDatas.curveDmgCount.Evaluate(currentLvl);
+        //animator.SetFloat("AttackSpeed", _config.UnitDatas[currentLvl].attackSpeed);
     }
 
 

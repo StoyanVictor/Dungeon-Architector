@@ -605,6 +605,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a45ca7cb071849c9bb8771ea36d89818, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  economicProgression:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 5
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 5
+      value: 35
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   moneyCount:
     value: 100
   moneyCountText: {fileID: 627185630}
@@ -1998,10 +2022,65 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 951071560271490380, guid: 5259af44ad1ba604fa6d5d4f2c479577,
         type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 951071560271490380, guid: 5259af44ad1ba604fa6d5d4f2c479577,
+        type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 33f555934e5d1f640890fc4ece1b99ca,
+      objectReference: {fileID: 21300000, guid: 367d7065d87bb80419a409e714adae60,
         type: 3}
+    - target: {fileID: 951071560271490380, guid: 5259af44ad1ba604fa6d5d4f2c479577,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 951071560271490380, guid: 5259af44ad1ba604fa6d5d4f2c479577,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 951071560271490380, guid: 5259af44ad1ba604fa6d5d4f2c479577,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 951071560271490380, guid: 5259af44ad1ba604fa6d5d4f2c479577,
+        type: 3}
+      propertyPath: m_Maskable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 951071560271490380, guid: 5259af44ad1ba604fa6d5d4f2c479577,
+        type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 951071560271490380, guid: 5259af44ad1ba604fa6d5d4f2c479577,
+        type: 3}
+      propertyPath: m_FillMethod
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 951071560271490380, guid: 5259af44ad1ba604fa6d5d4f2c479577,
+        type: 3}
+      propertyPath: m_FillOrigin
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 951071560271490380, guid: 5259af44ad1ba604fa6d5d4f2c479577,
+        type: 3}
+      propertyPath: m_UseSpriteMesh
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 951071560271490380, guid: 5259af44ad1ba604fa6d5d4f2c479577,
+        type: 3}
+      propertyPath: m_PreserveAspect
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 951071560271490380, guid: 5259af44ad1ba604fa6d5d4f2c479577,
+        type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 59.12
+      objectReference: {fileID: 0}
     - target: {fileID: 2535186608316978458, guid: 5259af44ad1ba604fa6d5d4f2c479577,
         type: 3}
       propertyPath: m_Name
@@ -5432,8 +5511,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1324086559}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.60895306, y: 0.6211575, z: 0.15744299, w: -0.4674947}
-  m_LocalPosition: {x: -0.00000020134738, y: -0.00000068633085, z: 0}
+  m_LocalRotation: {x: 0.6089531, y: 0.62115747, z: 0.15744296, w: -0.46749464}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5925,6 +6004,7 @@ MonoBehaviour:
   unitFactory: {fileID: 0}
   UnitSpawner: {fileID: 0}
   heroFabric: {fileID: 666003466}
+  LevelSwitcher: {fileID: 603901759}
 --- !u!114 &1462787517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6530,8 +6610,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1790151192}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.625533, y: 0.6150284, z: 0.17990255, w: -0.4450659}
-  m_LocalPosition: {x: -0.000000033557896, y: -0.00000011438847, z: 0}
+  m_LocalRotation: {x: 0.6255329, y: 0.6150285, z: 0.17990257, w: -0.44506595}
+  m_LocalPosition: {x: 0.000000033557896, y: 0.00000011438847, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7211,8 +7291,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1990945516}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.6173559, y: 0.6181909, z: 0.16871555, w: -0.45634076}
-  m_LocalPosition: {x: -0.000000033557896, y: -0.00000011438847, z: 0}
+  m_LocalRotation: {x: 0.6173559, y: 0.61819094, z: 0.16871543, w: -0.45634076}
+  m_LocalPosition: {x: 0.000000033557896, y: 0.00000011438847, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7787,7 +7867,7 @@ Transform:
   m_GameObject: {fileID: 2023455900}
   serializedVersion: 2
   m_LocalRotation: {x: -0.5660177, y: -0.4238207, z: 0.5660177, w: 0.4238207}
-  m_LocalPosition: {x: 10.045052, y: 6.92, z: 1.9275788}
+  m_LocalPosition: {x: 10.045052, y: 6.92, z: 1.9275795}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8002,8 +8082,18 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 05e4ab0753ace5e4f87abf6bd19febcf,
+      objectReference: {fileID: 21300000, guid: eafd7a5e42eb3cb47b84cb32f500d891,
         type: 3}
+    - target: {fileID: 951071560271490380, guid: 5259af44ad1ba604fa6d5d4f2c479577,
+        type: 3}
+      propertyPath: m_UseSpriteMesh
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 951071560271490380, guid: 5259af44ad1ba604fa6d5d4f2c479577,
+        type: 3}
+      propertyPath: m_PreserveAspect
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2421565326977804739, guid: 5259af44ad1ba604fa6d5d4f2c479577,
         type: 3}
       propertyPath: unitType

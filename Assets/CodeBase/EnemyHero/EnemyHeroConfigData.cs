@@ -6,4 +6,6 @@ public class EnemyHeroConfigData : ScriptableObject
     public int armour;
     public int dmg;
     public float attackSpeed;
+    public AnimationCurve healthPointCurve;
+    public AnimationCurve damageCurve;
 }
