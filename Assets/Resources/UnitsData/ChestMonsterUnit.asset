@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: ChestMonsterUnit
   m_EditorClassIdentifier: 
   unitPrefabId: ChestMonster
+  priceForSpawn: 20
   cellsToPlace: 1

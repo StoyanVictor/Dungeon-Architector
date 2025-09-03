@@ -22,9 +22,14 @@ public class BuildingSelector : MonoBehaviour
         rectTransform = GetComponent<RectTransform>();
         buttonTween = new ButtonTweenService();
         button = GetComponent<Button>();
-        button.onClick.AddListener(() => buildingSpawner.SelectBuilding(gameUnitData.unitPrefabId));
-        button.onClick.AddListener(() => buildingSpawner.SetsCellsCountToBuild(gameUnitData.cellsToPlace));
-        button.onClick.AddListener(() => buttonTween.PressButtonShakeTween(rectTransform));
+        button.onClick.AddListener(() => SelectButtonLogic());
+    }
 
+    private void SelectButtonLogic()
+    {
+        buttonTween.PressButtonShakeTween(rectTransform);
+        buildingSpawner.SetsCellsCountToBuild(gameUnitData.cellsToPlace);
+        buildingSpawner.SelectBuilding(gameUnitData.unitPrefabId);
+        buildingSpawner.SetBuildingPrice(gameUnitData.priceForSpawn);
     }
 }

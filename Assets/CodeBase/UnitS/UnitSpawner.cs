@@ -9,16 +9,17 @@ public class UnitSpawner : MonoBehaviour
     [SerializeField] private Camera mainCamera;
     [SerializeField] private LayerMask targetLayer;
     [SerializeField] private FabricCreatingSfxPlayer sfxPlayer;
+    private int currentUnitPrice;
     private SpawnTweenService tweenService;
-    private UnitFactory unitFactory;
+    private UnitFactoryTest _unitFactoryTest;
     private UnitType unitType;
     private Bank bank;
 
     [Inject]
-    public void Construct(Bank _bank,UnitFactory _unitFactory)
+    public void Construct(Bank _bank,UnitFactoryTest unitFactoryTest)
     {
         bank = _bank;
-        unitFactory = _unitFactory;
+        _unitFactoryTest = unitFactoryTest;
 
     }
     
@@ -42,7 +43,7 @@ public class UnitSpawner : MonoBehaviour
 
             if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, targetLayer))
             {
-                unitFactory.Create(GetUnitType(),hit.point);
+                _unitFactoryTest.Create(GetUnitType(),hit.point);
                 sfxPlayer.PlayCreateSFX();
             }
         }

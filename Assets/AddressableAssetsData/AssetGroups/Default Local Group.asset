@@ -17,6 +17,11 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: f03fcc009d042da489c9e595d25a07aa
   m_SerializeEntries:
+  - m_GUID: 29e6110f1a1d82d41b536e5cd2283a17
+    m_Address: Cactus
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 33fb8a2faca0f2a42b0a45a8662ef87c
     m_Address: ChestMonster
     m_ReadOnly: 0
@@ -29,6 +34,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 62dcba975a0bdfe47bef48ea43049412
     m_Address: MiniSkeleton
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 73885d139d1c85a459ef8571c6f96a24
+    m_Address: Ogr
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

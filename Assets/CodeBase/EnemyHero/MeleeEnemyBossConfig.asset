@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e330c5710764eeba0a82f6530cbb24c, type: 3}
   m_Name: MeleeEnemyBossConfig
   m_EditorClassIdentifier: 
-  hp: 1000
+  hp: 200
   armour: 50
   dmg: 10
   attackSpeed: 1
@@ -21,7 +21,7 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1000
+      value: 200
       inSlope: 0
       outSlope: 0
       tangentMode: 34
@@ -30,7 +30,7 @@ MonoBehaviour:
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 5
-      value: 1000
+      value: 200
       inSlope: 0
       outSlope: 0
       tangentMode: 34

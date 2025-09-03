@@ -662,6 +662,7 @@ GameObject:
   - component: {fileID: 4719817939639126070}
   - component: {fileID: 6139747965388882294}
   - component: {fileID: 5543071802092331449}
+  - component: {fileID: 3605528518188133074}
   m_Layer: 0
   m_Name: MiniSkeleton
   m_TagString: Untagged
@@ -967,6 +968,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnParticle: {fileID: 4762205695259355921}
   light: {fileID: 4762205695286056919}
+--- !u!114 &3605528518188133074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3136820629370392942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b473c08d96e049068a0d7da0b2cbd427, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
 --- !u!1 &3190320679450232660
 GameObject:
   m_ObjectHideFlags: 0

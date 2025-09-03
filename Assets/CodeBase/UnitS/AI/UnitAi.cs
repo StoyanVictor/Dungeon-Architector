@@ -8,7 +8,7 @@ namespace CodeBase.UnitS.AI
     public class UnitAi : MonoBehaviour
     {
         [SerializeField] private Animator animator;
-        [SerializeField] private NavMeshAgent agent;
+        public NavMeshAgent agent;
         [SerializeField] private float range;
         [SerializeField] private float attackrange;
         [SerializeField] private Collider _collider;
@@ -19,6 +19,9 @@ namespace CodeBase.UnitS.AI
         private IUnitState currentState;
         public bool enableGizmos;
 
+        public IAttackBehaviourStrategy attackStrategy;
+        public IMoveBehaviourStrategy moveStrategy;
+        
         public Transform GetCurrentTarget() => currentTarget;
 
         public void EnableCollider() => _collider.enabled = true;
@@ -46,25 +49,13 @@ namespace CodeBase.UnitS.AI
         }
         public void Move()
         {
-            if (FindTarget() && !CheckForAttackRange())
-            {
-                unitAnimationPlayer.PlayWalkAnimation();
-                agent.SetDestination(GetCurrentTarget().transform.position);
-            }
-            else
-            {
-                return;
-            }
+            moveStrategy.Move(this);
         }
         public  void Attack()
         {
-            if (CheckForAttackRange())
-            {
-                unitAnimationPlayer.PlayAttackAnimation();
-                LookAtTarget();
-            }
+            attackStrategy.Attack(this);
         }
-        private void LookAtTarget()
+        public void LookAtTarget()
         {
             if (currentTarget != null)
             {

@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: MiniSkeletonUnit
   m_EditorClassIdentifier: 
   unitPrefabId: MiniSkeleton
+  priceForSpawn: 10
   cellsToPlace: 1

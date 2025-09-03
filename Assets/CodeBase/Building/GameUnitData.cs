@@ -5,6 +5,7 @@ using UnityEngine.Serialization;
 public class GameUnitData : ScriptableObject
 {
     public string unitPrefabId;
+    public int priceForSpawn;
     public int cellsToPlace;
 
 }

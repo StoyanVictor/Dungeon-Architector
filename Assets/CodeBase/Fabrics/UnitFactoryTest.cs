@@ -2,7 +2,7 @@ using CodeBase.TweenServices;
 using UnityEngine;
 using Zenject;
 
-public class UnitFactory : MonoBehaviour
+public class UnitFactoryTest : MonoBehaviour
 {
     private DiContainer _diContainer;
     private GameObject _miniSkeleton;

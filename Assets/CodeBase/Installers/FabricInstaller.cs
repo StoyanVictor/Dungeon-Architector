@@ -1,10 +1,11 @@
 ﻿using CodeBase;
 using CodeBase.EnemyHero;
+using UnityEngine.Serialization;
 using Zenject;
 
 public class FabricInstaller : MonoInstaller
 {
-    public UnitFactory unitFactory;
+    [FormerlySerializedAs("unitFactory")] public UnitFactoryTest unitFactoryTest;
     public UnitSpawner UnitSpawner;
     public EnemyHeroFabric heroFabric;
     public LevelSwitcher LevelSwitcher;
@@ -15,7 +16,7 @@ public class FabricInstaller : MonoInstaller
 
     private void BindUnitFactory()
     {
-        Container.Bind<UnitFactory>().FromInstance(unitFactory).AsSingle();
+        Container.Bind<UnitFactoryTest>().FromInstance(unitFactoryTest).AsSingle();
         Container.Bind<UnitSpawner>().FromInstance(UnitSpawner).AsSingle();
         Container.Bind<EnemyHeroFabric>().FromInstance(heroFabric).AsSingle();
         Container.Bind<LevelSwitcher>().FromInstance(LevelSwitcher).AsSingle();

@@ -11,13 +11,15 @@ public class BuildingSpawner : MonoBehaviour
 {
     [SerializeField] private int cellsCountToBuild;
     [SerializeField] private FabricCreatingSfxPlayer sfxPlayer;
-    
+    private int currentBuildingPrice;
     private GameObject buildingPrefab;
     private SpawnTweenService tweenService;
     private AsyncOperationHandle<GameObject> loadHandle;
     private Bank bank;
     private DiContainer diContainer;
-
+    private UnitFactory factory;
+    private UnitTypes unitType;
+    
     [Inject]
     public void Construct(Bank _bank,DiContainer _diContainer)
     {
@@ -29,6 +31,7 @@ public class BuildingSpawner : MonoBehaviour
     {
         tweenService = new SpawnTweenService();
         Observable.EveryUpdate().Where(_ => Input.GetMouseButtonDown(1)).Subscribe(_ => ClearResources()).AddTo(this);
+        factory = new UnitFactory();
     }
 
     public bool IsBuildingPrefabAvailable()
@@ -41,6 +44,7 @@ public class BuildingSpawner : MonoBehaviour
         }
     }
 
+    public int SetBuildingPrice(int price) => currentBuildingPrice = price; 
     public int SetsCellsCountToBuild(int cellsCount) => cellsCountToBuild = cellsCount;
 
     public int GetCellsCountToBuild() => cellsCountToBuild;
@@ -55,6 +59,7 @@ public class BuildingSpawner : MonoBehaviour
             if (handle.Status == AsyncOperationStatus.Succeeded)
             {
                 buildingPrefab = handle.Result;
+                unitType = buildingPrefab.GetComponent<UnitMarker>().type;
                 ShowGhostPreview();
             }
             
@@ -101,9 +106,9 @@ public class BuildingSpawner : MonoBehaviour
             Debug.Log("❗ Building not loaded yet");
             return null;
         }
-        else if (!isEmpty && bank.SpendMoney(20))
+        else if (!isEmpty && bank.SpendMoney(currentBuildingPrice))
         {
-            var obj = diContainer.InstantiatePrefab(buildingPrefab, pos, Quaternion.identity,null);
+            var obj = factory.CreateUnit(buildingPrefab, pos, unitType, diContainer);
             UnitSpawnCheck(obj);
             tweenService.SpawnScaleTween(obj.transform.localScale,obj,0.5f);
             Destroy(ghostInstance);
