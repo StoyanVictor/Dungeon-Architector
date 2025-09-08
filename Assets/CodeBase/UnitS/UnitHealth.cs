@@ -1,3 +1,4 @@
+using CodeBase;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,6 +7,10 @@ public class UnitHealth : MonoBehaviour,IDamagable
     [SerializeField] private int health;
     [SerializeField] private Slider hpSlider;
     [SerializeField] private UnitConfigurator configurator;
+    public GameObject objectFromUnitInside;
+
+    public IUnitDeathBehaviourStrategy deathStrategy;
+    
     private void SetupHealthCount(UnitConfigurator _configurator) => health = _configurator.GetHpCount();
     public void SetMaxHP(float maxHP)
     {
@@ -45,6 +50,7 @@ public class UnitHealth : MonoBehaviour,IDamagable
 
     private void PlayerDeath()
     {
+        deathStrategy.Die(this);
         Destroy(this.gameObject);
     }
 }

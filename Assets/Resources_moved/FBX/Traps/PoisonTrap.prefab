@@ -12,10 +12,11 @@ GameObject:
   - component: {fileID: 5718503023145355571}
   - component: {fileID: 8494939673938597421}
   - component: {fileID: 4778157583142355561}
-  - component: {fileID: 1677153466684513025}
   - component: {fileID: 7122770349965137387}
   - component: {fileID: 4841180702984001702}
   - component: {fileID: 628296764670774084}
+  - component: {fileID: -1734642463717497143}
+  - component: {fileID: -920844602891024773}
   m_Layer: 2
   m_Name: PoisonTrap
   m_TagString: Untagged
@@ -106,19 +107,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particleSystem: {fileID: 9166480449610856904}
---- !u!114 &1677153466684513025
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1839634533131467074}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3186160145b4ab78ee75f4960fa4653, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  effectRange: 0
 --- !u!114 &7122770349965137387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,6 +122,7 @@ MonoBehaviour:
   health: 0
   hpSlider: {fileID: 4621470687089077866}
   configurator: {fileID: 4841180702984001702}
+  objectFromUnitInside: {fileID: 0}
 --- !u!114 &4841180702984001702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,6 +142,7 @@ MonoBehaviour:
   currentLvl: 0
   updateUi: {fileID: 7589622220210176476}
   canShowUpgradeMenu: 0
+  animator: {fileID: 0}
 --- !u!65 &628296764670774084
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -174,6 +164,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-1734642463717497143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839634533131467074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b473c08d96e049068a0d7da0b2cbd427, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 6
+--- !u!114 &-920844602891024773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839634533131467074}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2d82d84e98e4c10ae79eb32c723fa49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectRange: 0
+  configurator: {fileID: 4841180702984001702}
 --- !u!1 &1925399548593499350
 GameObject:
   m_ObjectHideFlags: 0
@@ -708,6 +725,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 5262586633372597866}
+  upgradePriceTxt: {fileID: 0}
   configurator: {fileID: 4841180702984001702}
 --- !u!1 &8666458848963231635
 GameObject:

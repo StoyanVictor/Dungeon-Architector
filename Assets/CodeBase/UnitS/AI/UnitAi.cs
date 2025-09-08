@@ -7,8 +7,8 @@ namespace CodeBase.UnitS.AI
 {
     public class UnitAi : MonoBehaviour
     {
-        [SerializeField] private Animator animator;
         public NavMeshAgent agent;
+        [SerializeField] private Animator animator;
         [SerializeField] private float range;
         [SerializeField] private float attackrange;
         [SerializeField] private Collider _collider;
@@ -18,6 +18,7 @@ namespace CodeBase.UnitS.AI
         public UnitAnimationPlayer unitAnimationPlayer;
         private IUnitState currentState;
         public bool enableGizmos;
+        public UnitHealth unitHealth;
 
         public IAttackBehaviourStrategy attackStrategy;
         public IMoveBehaviourStrategy moveStrategy;
@@ -98,9 +99,7 @@ namespace CodeBase.UnitS.AI
                 Gizmos.color = Color.black;
                 Gizmos.DrawSphere(transform.position,attackrange);
             }
-
-        }
-
+        } 
         private void Awake()
         {
             unitAnimationPlayer = new UnitAnimationPlayer(animator);

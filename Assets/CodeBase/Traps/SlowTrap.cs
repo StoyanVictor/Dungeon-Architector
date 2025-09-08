@@ -10,13 +10,13 @@ public class SlowTrap : MultiTargetTrapBase<SlowEffect>
 
     private void Update()
     {
-        if (!canCast) SlowCasting(5);
+        if (!canCast) SlowCasting(5,2);
     }
 
-    private async UniTask SlowCasting(int s)
+    private async UniTask SlowCasting(int s,int slowPower)
     {
         canCast = true;
-        EffectUsing();
+        EffectUsing(s,slowPower);
         await UniTask.Delay(TimeSpan.FromSeconds(s));
         canCast = false;
     }

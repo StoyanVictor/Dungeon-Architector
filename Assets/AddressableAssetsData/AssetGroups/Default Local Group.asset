@@ -32,6 +32,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5447db94820077549af26b7f6d28f14c
+    m_Address: SlowTrap
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 62dcba975a0bdfe47bef48ea43049412
     m_Address: MiniSkeleton
     m_ReadOnly: 0
@@ -54,6 +59,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bfb5c49f009e07740851b853ef2e3ee2
     m_Address: PoisonTrap
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fac39f8ef9c3ff44e903670eb3975ead
+    m_Address: PurpleSphere
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

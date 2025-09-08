@@ -4,5 +4,7 @@
     Chest,
     Ogr,
     Cactus,
-    SlowTrap
+    PurpleSphere,
+    SlowTrap,
+    PoisonTrap
 }

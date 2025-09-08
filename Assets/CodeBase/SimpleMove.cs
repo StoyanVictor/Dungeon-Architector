@@ -11,6 +11,7 @@ public class SimpleMove : IMoveBehaviourStrategy
         }
         else
         {
+            ai.FindTarget();
             return;
         }
     }

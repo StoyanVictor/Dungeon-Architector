@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Collections;
-using CodeBase.EnemyHero;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 public class PoisonTrap : MultiTargetTrapBase<PoisonEffect>
 {
+    [SerializeField] private UnitConfigurator configurator;
     private bool canCast;
-
+    
     private void Update()
     {
         if (!canCast) PoisonCasting(5);
@@ -16,7 +15,7 @@ public class PoisonTrap : MultiTargetTrapBase<PoisonEffect>
     private async UniTask PoisonCasting(int s)
     {
         canCast = true;
-        EffectUsing();
+        EffectUsing(5,configurator.GetDmgCount());
         await UniTask.Delay(TimeSpan.FromSeconds(s));
         canCast = false;
     }

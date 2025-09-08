@@ -12,16 +12,19 @@ public class AoeAttack : IAttackBehaviourStrategy
         if (!canCast)
         {
             Collider[] enemies;
-            enemies = Physics.OverlapSphere(ai.gameObject.transform.position, 5);
-            foreach (var enemy in enemies)
+            enemies = Physics.OverlapSphere(ai.gameObject.transform.position, 5,1 << 8);
+            if (enemies.Length > 0)
             {
-                if (enemy.TryGetComponent(out EnemyHeroHealth enemyHealth))
+                foreach (var enemy in enemies)
                 {
-                    enemyHealth.TakeDamage(10);
+                    if (enemy.TryGetComponent(out EnemyHeroHealth enemyHealth))
+                    {
+                        enemyHealth.TakeDamage(10);
+                    }
                 }
+                canCast = true;
+                AoeAttackTimer(3);
             }
-            canCast = true;
-            AoeAttackTimer(3);
         }
     }
     public async void AoeAttackTimer(int t)
