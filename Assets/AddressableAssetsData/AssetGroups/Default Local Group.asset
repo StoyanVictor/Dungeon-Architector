@@ -22,8 +22,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2d8643687b664580b4248d279407fb7c
+    m_Address: Assets/RPGMonsterBuddiesPBRPA/Material/PBR_Default.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 33fb8a2faca0f2a42b0a45a8662ef87c
     m_Address: ChestMonster
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 421140039854e8c42938a8cb73d3480c
+    m_Address: Assets/DogKnight/Material/Polyart.mat
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -34,6 +44,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5447db94820077549af26b7f6d28f14c
     m_Address: SlowTrap
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5b14a408ea91d4c47beba346957a3d99
+    m_Address: Assets/RPGMonsterBuddiesPBRPA/Material/Polyart_Default.mat
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -59,6 +74,46 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: bfb5c49f009e07740851b853ef2e3ee2
     m_Address: PoisonTrap
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cad6fa3a83060754d98d2fb182f98fd5
+    m_Address: Assets/Mini Legion Grunt PBR HP Polyart/Material/HP.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cc73c96474aa433e8b99209fccd68cdb
+    m_Address: Assets/RPGMonsterPartnersPBRPolyart/Materials/PBRDefault.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d8a4de89336021d488c0a4e9fdad9a2c
+    m_Address: Assets/Mini Legion Grunt PBR HP Polyart/Material/PBR.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: da05e49adf02c134f88f541992ee78d2
+    m_Address: Assets/DogKnight/Material/PBR.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dc66b1f7b771bef46a6e8bae9a948679
+    m_Address: Assets/Mini Legion Grunt PBR HP Polyart/Material/PolyartStandard.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e062e012645db5746a5f6dbe30dbd7fa
+    m_Address: Assets/Mini Legion Grunt PBR HP Polyart/Material/Stage.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f1724eecaf9d4e7e93cc07cfcb6b4b97
+    m_Address: Assets/RPGMonsterPartnersPBRPolyart/Materials/PolyartDefault.mat
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f2fc9074a54a76240b13875586e6454e
+    m_Address: MageTower
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

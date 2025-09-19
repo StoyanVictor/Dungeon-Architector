@@ -1,17 +1,14 @@
-﻿using UnityEngine;
-using UnityEngine.AI;
-
-namespace CodeBase.UnitS.AI
+﻿namespace CodeBase.UnitS.AI
 {
     public class FollowingState : IUnitState
     {
-        private UnitAi unitAi;
+        private UnitAiController _unitAiController;
         private UnitAnimationPlayer unitAnimationPlayer;
 
-        public FollowingState(UnitAi ai, UnitAnimationPlayer _unitAnimationPlayer)
+        public FollowingState(UnitAiController aiController, UnitAnimationPlayer _unitAnimationPlayer)
         {
             unitAnimationPlayer = _unitAnimationPlayer;
-            unitAi = ai;
+            _unitAiController = aiController;
         }
 
         public void EnterState()
@@ -20,14 +17,14 @@ namespace CodeBase.UnitS.AI
 
         public void Excute()
         {
-            if(!unitAi.FindTarget())
-                unitAi.SwitchState(new IdleState(unitAnimationPlayer,unitAi));
-            if (unitAi.FindTarget() && !unitAi.CheckForAttackRange())
+            if(!_unitAiController.aiLogic.FindTarget())
+                _unitAiController.SwitchState(new IdleState(unitAnimationPlayer,_unitAiController));
+            if (_unitAiController.aiLogic.FindTarget() && !_unitAiController.aiLogic.CheckForAttackRange())
             {
-                unitAi.Move();
+                _unitAiController.Move();
             }
-            else if(unitAi.CheckForAttackRange())
-                unitAi.SwitchState(new AttackState(unitAi));
+            else if(_unitAiController.aiLogic.CheckForAttackRange())
+                _unitAiController.SwitchState(new AttackState(_unitAiController));
         }
 
         public void ExitState()

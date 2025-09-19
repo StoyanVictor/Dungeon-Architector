@@ -6,5 +6,6 @@
     Cactus,
     PurpleSphere,
     SlowTrap,
-    PoisonTrap
+    PoisonTrap,
+    MageTower
 }

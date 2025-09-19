@@ -91,6 +91,7 @@ public class BuildingSpawner : MonoBehaviour
             Destroy(ghostInstance);
         ghostInstance = Instantiate(buildingPrefab);
         SetGhostMaterialTransparent(ghostInstance);
+        ghostInstance.GetComponent<UnitAiController>().SetGhost();
     }
 
     public void MoveGhostTo(Vector3 pos,  bool isEmpty)
@@ -122,12 +123,9 @@ public class BuildingSpawner : MonoBehaviour
 
     private void UnitSpawnCheck(GameObject unit)
     {
-        if (unit.TryGetComponent(out UnitAi unitAi))
+        if (unit.TryGetComponent(out UnitAiController unitAi))
         {
-            unitAi.EnableCollider();
-            unitAi.StartWorkWithRealUnit();
-            unitAi.PlaySpawnOneShot();
-            unitAi.PlaySpawnVfx();
+            unitAi.ValidatingUnitEntity();
         }
         else
         {

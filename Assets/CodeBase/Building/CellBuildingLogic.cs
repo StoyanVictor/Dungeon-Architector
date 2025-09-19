@@ -50,7 +50,7 @@ namespace CodeBase
             {
                 OnCellSelect?.Invoke();
                 if (!buildingSpawner.PlaceBuilding(cell.GetCellPosition() + offset, canBuildHere)
-                    .TryGetComponent(out UnitAi ai))
+                    .TryGetComponent(out UnitAiController ai))
                 {
                     foreach (var cell in cellsList)
                     {

@@ -5,11 +5,11 @@ namespace CodeBase.UnitS.AI
     public class GhostState : IUnitState
     {
         private UnitAnimationPlayer unitAnimationPlayer;
-        private UnitAi unitAi;
-        public GhostState(UnitAnimationPlayer _unitAnimationPlayer,UnitAi _unitAi)
+        private UnitAiController _unitAiController;
+        public GhostState(UnitAnimationPlayer _unitAnimationPlayer,UnitAiController unitAiController)
         {
             unitAnimationPlayer = _unitAnimationPlayer;
-            unitAi = _unitAi;
+            _unitAiController = unitAiController;
         }
 
         public void EnterState()

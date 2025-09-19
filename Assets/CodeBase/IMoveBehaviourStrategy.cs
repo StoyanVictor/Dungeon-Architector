@@ -2,5 +2,5 @@
 
 public interface IMoveBehaviourStrategy
 {
-    public void Move(UnitAi ai);
+    public void Move(UnitAiController aiController);
 }

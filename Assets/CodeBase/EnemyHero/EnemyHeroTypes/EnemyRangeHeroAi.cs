@@ -1,9 +1,7 @@
 ﻿using CodeBase.EnemyHero;
 using UnityEngine;
-
 public class EnemyRangeHeroAi : EnemyHeroAiBase
 {
-    
     public override void Move()
     {
         if (!FindTarget())
@@ -22,12 +20,10 @@ public class EnemyRangeHeroAi : EnemyHeroAiBase
             return;
         }
     }
-    
     private void Update()
     {
         currentState.Excute();
     }
-    
     public override void Attack()
     {
         if (CheckForAttackRange())

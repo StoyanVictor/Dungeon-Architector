@@ -4,11 +4,11 @@ namespace CodeBase.UnitS.AI
 {
     public class AttackState : IUnitState
     {
-        private UnitAi unitAi;
+        private UnitAiController _unitAiController;
         
-        public AttackState(UnitAi ai)
+        public AttackState(UnitAiController aiController)
         {
-            unitAi = ai;
+            _unitAiController = aiController;
         }
         public void EnterState()
         {
@@ -16,14 +16,14 @@ namespace CodeBase.UnitS.AI
 
         public void Excute()
         {
-            if(unitAi.GetCurrentTarget() == null)
-                unitAi.SwitchState(new IdleState(unitAi.unitAnimationPlayer,unitAi));
-            if (unitAi.CheckForAttackRange())
+            if(_unitAiController.aiLogic.GetCurrentTarget() == null)
+                _unitAiController.SwitchState(new IdleState(_unitAiController.visualPlayer.unitAnimationPlayer,_unitAiController));
+            if (_unitAiController.aiLogic.CheckForAttackRange())
             {
-                unitAi.Attack();
+                _unitAiController.Attack();
             }
-            else if(unitAi.FindTarget() && !unitAi.CheckForAttackRange())
-                unitAi.SwitchState(new FollowingState(unitAi,unitAi.unitAnimationPlayer));
+            else if(_unitAiController.aiLogic.FindTarget() && !_unitAiController.aiLogic.CheckForAttackRange())
+                _unitAiController.SwitchState(new FollowingState(_unitAiController,_unitAiController.visualPlayer.unitAnimationPlayer));
         }
 
         public void ExitState()

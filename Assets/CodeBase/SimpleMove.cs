@@ -2,16 +2,16 @@
 
 public class SimpleMove : IMoveBehaviourStrategy
 {
-    public void Move(UnitAi ai)
+    public void Move(UnitAiController aiController)
     {
-        if (ai.FindTarget() && !ai.CheckForAttackRange())
+        if (aiController.aiLogic.FindTarget() && !aiController.aiLogic.CheckForAttackRange())
         {
-            ai.unitAnimationPlayer.PlayWalkAnimation();
-            ai.agent.SetDestination(ai.GetCurrentTarget().transform.position);
+            aiController.visualPlayer.unitAnimationPlayer.PlayWalkAnimation();
+            aiController.aiLogic.agent.SetDestination(aiController.aiLogic.GetCurrentTarget().transform.position);
         }
         else
         {
-            ai.FindTarget();
+            aiController.aiLogic.FindTarget();
             return;
         }
     }

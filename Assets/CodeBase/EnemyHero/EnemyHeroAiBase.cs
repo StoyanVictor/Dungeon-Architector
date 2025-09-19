@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections;
-using CodeBase.UnitS.AI;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
-
 namespace CodeBase.EnemyHero
 {
     public abstract class EnemyHeroAiBase : MonoBehaviour

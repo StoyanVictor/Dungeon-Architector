@@ -2,7 +2,7 @@
 
 namespace CodeBase.UnitS.AI
 {
-    public class UnitAnimationPlayer
+    public class UnitAnimationPlayer 
     {
         private const string IDLE = "Idle";
         private const string WALK = "Walk";

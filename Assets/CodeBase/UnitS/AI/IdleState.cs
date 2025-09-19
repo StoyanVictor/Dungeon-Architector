@@ -5,23 +5,24 @@ namespace CodeBase.UnitS.AI
     public class IdleState : IUnitState
     {
         private UnitAnimationPlayer unitAnimationPlayer;
-        private UnitAi unitAi;
-        public IdleState(UnitAnimationPlayer _unitAnimationPlayer,UnitAi _unitAi)
+        private UnitAiController _unitAiController;
+        public IdleState(UnitAnimationPlayer _unitAnimationPlayer,UnitAiController unitAiController)
         {
             unitAnimationPlayer = _unitAnimationPlayer;
-            unitAi = _unitAi;
+            _unitAiController = unitAiController;
         }
 
         public void EnterState()
         {
+            Debug.Log("Hi");
             unitAnimationPlayer.PlayIdleAnimation();
         }
 
         public void Excute()
         {
             unitAnimationPlayer.PlayIdleAnimation();
-            if(unitAi.FindTarget())
-                unitAi.SwitchState(new FollowingState(unitAi, unitAnimationPlayer));
+            if(_unitAiController.aiLogic.FindTarget())
+                _unitAiController.SwitchState(new FollowingState(_unitAiController, unitAnimationPlayer));
         }
 
         public void ExitState()

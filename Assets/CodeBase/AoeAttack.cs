@@ -7,12 +7,12 @@ using UnityEngine;
 public class AoeAttack : IAttackBehaviourStrategy
 {
     private bool canCast;
-    public void Attack(UnitAi ai)
+    public void Attack(UnitAiController aiController)
     {
         if (!canCast)
         {
             Collider[] enemies;
-            enemies = Physics.OverlapSphere(ai.gameObject.transform.position, 5,1 << 8);
+            enemies = Physics.OverlapSphere(aiController.gameObject.transform.position, 5,1 << 8);
             if (enemies.Length > 0)
             {
                 foreach (var enemy in enemies)

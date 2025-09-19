@@ -3,6 +3,6 @@ namespace CodeBase
 {
     public interface IAttackBehaviourStrategy
     {
-        public void Attack(UnitAi ai);
+        public void Attack(UnitAiController aiController);
     }
 }

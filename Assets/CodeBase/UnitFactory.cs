@@ -9,39 +9,30 @@ namespace CodeBase
         {
             var obj = diContainer.InstantiatePrefab(unitObject, position,Quaternion.identity,null);
             
-            if (obj.TryGetComponent(out UnitAi ai))
+            if (obj.TryGetComponent(out UnitAiController ai))
             {
                 switch (type)
                 {
                     case UnitTypes.Chest:
-                        ai.attackStrategy = new MimicAttack();
-                        ai.moveStrategy = new NoMove();
-                        ai.unitHealth.deathStrategy = new DeathOfMimic();
+                        ConstructingUnit(ai,new NoMove(),new MimicAttack(),new DeathOfMimic());
                         break;
                     case UnitTypes.Skeleton:
-                        ai.attackStrategy = new MeleeAttack();
-                        ai.moveStrategy = new SimpleMove();
-                        ai.unitHealth.deathStrategy = new DeathWithoutEffect();
+                        ConstructingUnit(ai,new SimpleMove(),new MeleeAttack(),new DeathWithoutEffect());
                         break;
                     case UnitTypes.PoisonTrap:
-                        ai.attackStrategy = new NoAttack();
-                        ai.moveStrategy = new NoMove();
-                        ai.unitHealth.deathStrategy = new DeathWithoutEffect();
+                        ConstructingUnit(ai,new NoMove(),new NoAttack(),new DeathWithoutEffect());
                         break;
                     case UnitTypes.PurpleSphere:
-                        ai.attackStrategy = new HellTowerAttack();
-                        ai.moveStrategy = new SimpleMove();
-                        ai.unitHealth.deathStrategy = new DeathWithoutEffect();
+                        ConstructingUnit(ai,new SimpleMove(),new HellTowerAttack(),new DeathWithoutEffect());
                         break;
                     case UnitTypes.Ogr:
-                        ai.attackStrategy = new MeleeAttack();
-                        ai.moveStrategy = new SimpleMove();
-                        ai.unitHealth.deathStrategy = new DeathWithoutEffect();
+                        ConstructingUnit(ai,new SimpleMove(),new MeleeAttack(),new DeathWithoutEffect());
                         break;
                     case UnitTypes.Cactus:
-                        ai.attackStrategy = new AoeAttack();
-                        ai.moveStrategy = new NoMove();
-                        ai.unitHealth.deathStrategy = new DeathWithoutEffect();
+                        ConstructingUnit(ai,new NoMove(),new AoeAttack(),new DeathWithoutEffect());
+                        break;
+                    case UnitTypes.MageTower:
+                        ConstructingUnit(ai,new NoMove(),new MagicTowerAttack(),new DeathWithoutEffect());
                         break;
                 }
             }
@@ -51,6 +42,14 @@ namespace CodeBase
                 healthcomponent.deathStrategy = new DeathWithoutEffect();
             }
             return obj;
+        }
+
+        private void ConstructingUnit(UnitAiController ai,IMoveBehaviourStrategy moveBehaviour, IAttackBehaviourStrategy attackBehaviour,
+            IUnitDeathBehaviourStrategy deathBehaviour)
+        {
+            ai.attackStrategy = attackBehaviour;
+            ai.moveStrategy = moveBehaviour;
+            ai.aiLogic.unitHealth.deathStrategy = deathBehaviour;
         }
     }
 }

@@ -4,12 +4,12 @@ using UnityEngine.UI;
 
 public class MeleeAttack : IAttackBehaviourStrategy
 {
-    public void Attack(UnitAi ai)
+    public void Attack(UnitAiController aiController)
     {
-        if (ai.CheckForAttackRange())
+        if (aiController.aiLogic.CheckForAttackRange())
         { 
-            ai.LookAtTarget();
-            ai.unitAnimationPlayer.PlayAttackAnimation();
+            aiController.aiLogic.LookAtTarget();
+            aiController.visualPlayer.unitAnimationPlayer.PlayAttackAnimation();
         }
     }
 }

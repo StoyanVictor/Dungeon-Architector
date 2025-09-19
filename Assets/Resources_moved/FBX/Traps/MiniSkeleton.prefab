@@ -663,6 +663,8 @@ GameObject:
   - component: {fileID: 6139747965388882294}
   - component: {fileID: 5543071802092331449}
   - component: {fileID: 3605528518188133074}
+  - component: {fileID: 1715498858286244699}
+  - component: {fileID: 5484591393193366312}
   m_Layer: 0
   m_Name: MiniSkeleton
   m_TagString: Untagged
@@ -727,16 +729,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 310fca16dc2940549328e916faf584b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 4985691113074979274}
-  agent: {fileID: 7833200962740285766}
-  range: 10
-  attackrange: 1.5
   _collider: {fileID: 3736148913393767447}
-  fabricCreatingSfxPlayer: {fileID: 4719817939639126070}
-  unitSpawnVfxPlayer: {fileID: 5543071802092331449}
-  currentTarget: {fileID: 0}
   enableGizmos: 0
-  unitHealth: {fileID: 6983715754821134372}
+  visualPlayer: {fileID: 1715498858286244699}
+  aiLogic: {fileID: 5484591393193366312}
 --- !u!195 &7833200962740285766
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -924,8 +920,8 @@ MonoBehaviour:
   hp: 0
   armour: 0
   dmg: 0
-  config: {fileID: 11400000, guid: 5b85b3aa0f09ece42a77b0edfee1e04b, type: 2}
   currentLvl: 0
+  config: {fileID: 11400000, guid: 5b85b3aa0f09ece42a77b0edfee1e04b, type: 2}
   updateUi: {fileID: 7057544648198257216}
   canShowUpgradeMenu: 0
   animator: {fileID: 4985691113074979274}
@@ -983,6 +979,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+--- !u!114 &1715498858286244699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3136820629370392942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52197f975410496f8273ea1c605e6c86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fabricCreatingSfxPlayer: {fileID: 4719817939639126070}
+  unitSpawnVfxPlayer: {fileID: 5543071802092331449}
+  animator: {fileID: 4985691113074979274}
+--- !u!114 &5484591393193366312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3136820629370392942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a7b1b02be6d47d398a7fb0fc26418de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackrange: 0
+  range: 0
+  projectilePool: {fileID: 0}
+  agent: {fileID: 7833200962740285766}
+  unitHealth: {fileID: 6983715754821134372}
 --- !u!1 &3190320679450232660
 GameObject:
   m_ObjectHideFlags: 0

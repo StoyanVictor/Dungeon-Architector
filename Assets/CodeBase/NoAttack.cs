@@ -3,8 +3,8 @@ using CodeBase.UnitS.AI;
 
 public class NoAttack : IAttackBehaviourStrategy
 {
-    public void Attack(UnitAi ai)
+    public void Attack(UnitAiController aiController)
     {
-        ai.unitAnimationPlayer.PlayIdleAnimation();
+        aiController.visualPlayer.unitAnimationPlayer.PlayIdleAnimation();
     }
 }

@@ -8,8 +8,8 @@ public class UnitConfigurator : MonoBehaviour
     [SerializeField] private int hp;
     [SerializeField] private int armour;
     [SerializeField] private int dmg;
-    [SerializeField] private UnitConfigData config;
     [SerializeField] private int currentLvl;
+    [SerializeField] private UnitConfigData config;
     [SerializeField] private GameObject updateUi;
     [SerializeField] private bool  canShowUpgradeMenu;
     [SerializeField] private Animator  animator;
@@ -42,7 +42,6 @@ public class UnitConfigurator : MonoBehaviour
             updateUi.SetActive(false);
             canShowUpgradeMenu = false;
         }
-
     }
 
     public int GetHpCount() => hp;
